@@ -93,31 +93,31 @@
                             @endforeach
                         </ul>
                     </div>
-
-                    <div class="wrap-pagination-info">
-                        <nav>
-                            <ul class="pagination">
-                                <!-- Nút phân trang trước đó -->
-                                {!! $products->previousPageUrl() ? '<li class="page-item"><a class="page-link"
+                    @if ($products->count() > 0)
+    <div class="wrap-pagination-info">
+        <nav>
+            <ul class="pagination">
+                <!-- Nút phân trang trước đó -->
+                {!! $products->previousPageUrl() ? '<li class="page-item"><a class="page-link"
                                         href="' . $products->previousPageUrl() . '" rel="prev">&laquo;</a></li>' : ''
-                                !!}
+                !!}
 
+                <!-- Liệt kê các trang -->
+                @foreach ($products->getUrlRange(max(1, $products->currentPage() - 2),
+                min($products->lastPage(), $products->currentPage() + 2)) as $page => $url)
+                    <li class="{{ $page == $products->currentPage() ? 'page-item active' : 'page-item' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                @endforeach
 
-
-                                <!-- Liệt kê các trang -->
-                                @foreach ($products->getUrlRange(max(1, $products->currentPage() - 2),
-                                min($products->lastPage(), $products->currentPage() + 2)) as $page => $url)
-                                <li class="{{ $page == $products->currentPage() ? 'page-item active' : 'page-item' }}">
-                                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
-                                </li>
-                                @endforeach
-
-                                <!-- Nút phân trang tiếp theo -->
-                                {!! $products->nextPageUrl() ? '<li class="page-item"><a class="page-link"
+                <!-- Nút phân trang tiếp theo -->
+                {!! $products->nextPageUrl() ? '<li class="page-item"><a class="page-link"
                                         href="' . $products->nextPageUrl() . '" rel="next">&raquo;</a></li>' : '' !!}
-                            </ul>
-                        </nav>
-                    </div>
+            </ul>
+        </nav>
+    </div>
+@endif
+
 
 
                     {{-- <div class="wrap-pagination-info"> --}}
@@ -139,11 +139,42 @@
                         <h2 class="widget-title">All Categories</h2>
                         <div class="widget-content">
                             <ul class="list-category">
-                               @foreach ($categories as $category)
-                                    <li class="category-item">
-                                        <a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="cate-link">{{$category->name}}</a>
-                                    </li>
-                                @endforeach
+                                <li class="category-item has-child-cate">
+                                    <a href="#" class="cate-link">Fashion & Accessories</a>
+                                    <span class="toggle-control">+</span>
+                                    <ul class="sub-cate">
+                                        <li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
+                                        <li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
+                                        <li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
+                                    </ul>
+                                </li>
+                                <li class="category-item has-child-cate">
+                                    <a href="#" class="cate-link">Furnitures & Home Decors</a>
+                                    <span class="toggle-control">+</span>
+                                    <ul class="sub-cate">
+                                        <li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
+                                        <li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
+                                        <li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
+                                    </ul>
+                                </li>
+                                <li class="category-item has-child-cate">
+                                    <a href="#" class="cate-link">Digital & Electronics</a>
+                                    <span class="toggle-control">+</span>
+                                    <ul class="sub-cate">
+                                        <li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
+                                        <li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
+                                        <li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
+                                    </ul>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="cate-link">Tools & Equipments</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="cate-link">Kid’s Toys</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="cate-link">Organics & Spa</a>
+                                </li>
                             </ul>
                         </div>
                     </div><!-- Categories widget-->

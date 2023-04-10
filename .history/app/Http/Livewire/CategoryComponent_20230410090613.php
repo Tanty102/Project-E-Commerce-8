@@ -8,15 +8,17 @@ use Livewire\WithPagination;
 use Cart;
 use App\Models\Category;
 
-class ShopComponent extends Component
+class CategoryComponent extends Component
 {
     public $sorting;
     public $pagesize;
+    public $category_slug;
 
-    public function mount()
+    public function mount($category_slug)
     {
         $this->sorting ="default";
         $this->pagesize = 12;
+        $this->category_slug = $category_slug;
     }
 
     public function store($product_id,$product_name,$product_price)
@@ -48,6 +50,6 @@ class ShopComponent extends Component
 
         $categories = Category::all();
 
-        return view('livewire.shop-component',['products'=> $products, 'categories'=>$categories])->layout("layouts.base");
+        return view('livewire.category-component',['products'=> $products, 'categories'=>$categories])->layout("layouts.base");
     }
 }
