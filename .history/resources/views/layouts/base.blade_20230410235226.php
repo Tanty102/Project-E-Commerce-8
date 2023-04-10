@@ -146,7 +146,7 @@
                                     alt="mercado"></a>
                         </div>
 
-                        @livewire('header-search-component')
+                        
 
                         <div class="wrap-icon right-section">
                             <div class="wrap-icon-section wishlist">

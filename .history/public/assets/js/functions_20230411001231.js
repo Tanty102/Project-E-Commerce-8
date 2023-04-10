@@ -94,11 +94,11 @@
                             .attr("title", _title);
                         _this
                             .parent()
-                            .siblings('input[name="product_cat"]')
+                            .siblings('input[name="product-cat"]')
                             .val(_value);
                         _this
                             .parent()
-                            .siblings('input[name="product_cat_id"]')
+                            .siblings('input[name="product-cat_id"]')
                             .val(_this.data("id"));
                         _this.parent().slideUp();
                     }
