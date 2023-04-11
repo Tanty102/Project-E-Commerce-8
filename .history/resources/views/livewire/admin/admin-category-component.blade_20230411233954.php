@@ -38,9 +38,11 @@
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->slug }}</td>
                                         <td>
-                                            <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}">
+                                            <a href="{{route('admin.editcategory',[
+                                                'category_slug'=>slug
+                                                ])}}">
                                                 <i class="fa fa-edit fa-2x"></i>
-                                            </a>
+                                                </a>
                                         </td>
                                     </tr>
                                 @endforeach
