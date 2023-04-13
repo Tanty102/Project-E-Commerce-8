@@ -54,7 +54,7 @@
                                                 ])}}">
                                                 <i class="fa fa-edit fa-2x text-info"></i>
                                             </a>
-                                            <a href="#" class="ml-1" onclick="confirm('Confirm delete?') || event.      stopImmediatePropagation()" style="margin-left: 20px;" wire:click.   prevent='deleteProduct({{$product->id}})'>
+                                            <a href="#" class="ml-1" onclick="confirm('Confirm delete?') || event.stopImmediatePropagation()" style="margin-left: 20px;" wire:click.prevent='deleteProduct({{$product->id}})'>
                                                 <i class="fa fa-times fa-2x text-danger"></i>
                                             </a>
                                         </td>
