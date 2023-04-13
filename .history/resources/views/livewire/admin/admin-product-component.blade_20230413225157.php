@@ -49,7 +49,6 @@
                                             <a href="{{route('admin.editproduct',[
                                                 'product_slug' => $product->slug
                                                 ])}}">
-                                                <i class="fa fa-edit fa-2x text-info"></i>
                                             </a>
                                         </td>
                                     </tr>
