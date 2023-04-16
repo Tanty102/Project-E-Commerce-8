@@ -7,14 +7,12 @@
                 data-dots="false">
                 @foreach ($sliders as $slide)
                     <div class="item-slide">
-                        <img src="{{ asset('assets/images/sliders')}}/{{$slide->image}}" class="img-slide">
+                        <img src="{{ asset('assets/images/main-slider-1-1.jpg') }}" alt="" class="img-slide">
                         <div class="slide-info slide-1">
-                            <h2 class="f-title"><b>{{$slide->title}}</b></h2>
-                            <span class="subtitle">{{$slide->subtitle}}</span>
-                            <p class="sale-info">Only price: 
-                                <span class="price">{{ number_format($slide->price, 0, ',','.') }}₫</span>
-                            </p>
-                            <a href="{{$slide->link}}" class="btn-link">Shop Now</a>
+                            <h2 class="f-title">Kid Smart <b>Watches</b></h2>
+                            <span class="subtitle">Compra todos tus productos Smart por internet.</span>
+                            <p class="sale-info">Only price: <span class="price">$59.99</span></p>
+                            <a href="#" class="btn-link">Shop Now</a>
                         </div>
                     </div>
                 @endforeach

@@ -11,7 +11,7 @@ class HomeComponent extends Component
     {
         $sliders = HomeSlider::where('status', 1)->get();
         return view('livewire.home-component',[
-            'sliders' => $sliders
+                'sliders' => $sliders
         ])->layout('layouts.base');
     }
 }
