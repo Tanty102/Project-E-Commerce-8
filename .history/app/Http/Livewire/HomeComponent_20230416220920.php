@@ -29,7 +29,7 @@ class HomeComponent extends Component
             'categories' => $categories,
             'no_of_products' => $no_of_products,
             'sproducts' => $sproducts,
-            'sale' => $sale,
+            'sales' => $sales,
         ])->layout('layouts.base');
     }
 }

@@ -22,8 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/6.4.4/css/tempus-dominus.css" integrity="sha512-Has32s6AdZCytVnqS3BZc7JZ0PF1WJTNuPQAjGGzwrUa6i7vU9YgAyXm32qtrTP4dihoMaz/2AqPNTW9II5DOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/6.4.4/css/tempus-dominus.min.css" integrity="sha512-wO+rVZhTyJgwKxVY279cD/TZTlW2m0IJQXzoOHfj2w//md58T3jc8ZWHb+HEm8CspcCNnaJVFPyRAGd/Y4ScfA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @livewireStyles
 </head>
 
@@ -111,11 +110,6 @@
                                         <li class="menu-item">
                                             <a href="{{route('admin.homecategories')}}" title="Manage Home Categories">
                                                 Manage Home Categories
-                                            </a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="{{route('admin.sale')}}" title="Sale Setting">
-                                                Sale Setting
                                             </a>
                                         </li>
                                         <li class="menu-item">
@@ -559,11 +553,8 @@
     <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/6.4.4/js/tempus-dominus.js" integrity="sha512-f7lexY18doLNGU2OQhsDLO7J9KtqtE5b7BC6guXCQsDzoHuqbOOQX+n99dUUOIpXsm9PuXrS1KoThsVWDunKrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/6.4.4/js/tempus-dominus.min.js" integrity="sha512-uWvAA2ZuTCUbCAJj+bGyZODD69QcCfbnCsE4TJRlWOOh+dD1wFQU5HTwfdJ8bFsEZtTUS+5BoT+7SWQlLg18Hg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @livewireScripts
 
     @stack('scripts')

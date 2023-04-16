@@ -22,8 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/6.4.4/css/tempus-dominus.css" integrity="sha512-Has32s6AdZCytVnqS3BZc7JZ0PF1WJTNuPQAjGGzwrUa6i7vU9YgAyXm32qtrTP4dihoMaz/2AqPNTW9II5DOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @livewireStyles
 </head>
 
@@ -559,11 +558,8 @@
     <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/6.4.4/js/tempus-dominus.js" integrity="sha512-f7lexY18doLNGU2OQhsDLO7J9KtqtE5b7BC6guXCQsDzoHuqbOOQX+n99dUUOIpXsm9PuXrS1KoThsVWDunKrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/6.4.4/js/tempus-dominus.min.js" integrity="sha512-uWvAA2ZuTCUbCAJj+bGyZODD69QcCfbnCsE4TJRlWOOh+dD1wFQU5HTwfdJ8bFsEZtTUS+5BoT+7SWQlLg18Hg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @livewireScripts
 
     @stack('scripts')

@@ -38,7 +38,7 @@
         </div>
 
         <!--On Sale-->
-        @if ($sproducts->count() > 0 && $sale->status == 1 && $sale->sale_date > carbon\Carbon::now() )
+        @if ($sproducts->count() > 0 && $sale->status == 1 && $sale->sale_date > carbon\Carbon::now())
             <div class="wrap-show-advance-info-box style-1 has-countdown">
                 <h3 class="title-box">On Sale</h3>
                 <div class="wrap-countdown mercado-countdown"
