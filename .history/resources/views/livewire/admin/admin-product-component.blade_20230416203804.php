@@ -46,8 +46,7 @@
                                         <td><img src="{{asset('assets/images/products')}}/{{$product->image}}" width="60" ></td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->stock_status}}</td>
-                                        <td>{{ number_format($product->regular_price, 0, ',','.') }}₫</td>
-                                        <td>{{ number_format($product->sale_price, 0, ',','.') }}₫</td>
+                                        <td>{{$product->regular_price}}</td>
                                         <td>{{$product->category->name}}</td>
                                         <td>{{$product->created_at}}</td>
                                         <td>
