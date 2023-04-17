@@ -50,7 +50,7 @@
         $('#sale_date').datetimepicker({
             format: 'Y-m-d H:i:s'
         })
-        .on('change', function (event) {
+        .on('dp.change', function (event) {
             var data = $('#sale_date').val();
             @this.set('sale_date', data);
         });

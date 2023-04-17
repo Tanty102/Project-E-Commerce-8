@@ -563,7 +563,15 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script> --}}
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+
+    
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/6.4.4/js/tempus-dominus.min.js" integrity="sha512-uWvAA2ZuTCUbCAJj+bGyZODD69QcCfbnCsE4TJRlWOOh+dD1wFQU5HTwfdJ8bFsEZtTUS+5BoT+7SWQlLg18Hg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+
+
 
     @livewireScripts
 

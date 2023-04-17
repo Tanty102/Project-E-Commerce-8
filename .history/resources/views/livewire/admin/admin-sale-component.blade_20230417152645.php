@@ -25,7 +25,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Sale Date</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control input-md" placeholder="YYYY/MM/DD H:M:S" id="sale_date" wire:model="sale_date">
+                                    <input type="text" class="form-control input-md" placeholder="YYYY/MM/DD H:M:S" id="sale_date" name="sale_date" wire:model="sale_date">
                                 </div>
                             </div>
                             
@@ -50,7 +50,7 @@
         $('#sale_date').datetimepicker({
             format: 'Y-m-d H:i:s'
         })
-        .on('change', function (event) {
+        .on('dp.change', function (event) {
             var data = $('#sale_date').val();
             @this.set('sale_date', data);
         });
