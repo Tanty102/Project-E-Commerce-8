@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Edit Category 
+                                Add New Category 
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.categories')}}" class="btn btn-success pull-right">All Category</a>
@@ -17,7 +17,7 @@
                         @if (Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
-                        <form action="" class="form-horizontal" wire:submit.prevent='updateCategory'>
+                        <form action="" class="form-horizontal" wire:submit.prevent='storeCategory'>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Category Name</label>
                                 <div class="col-md-4">
@@ -37,16 +37,13 @@
                                     <input type="text" placeholder="Category Slug" class="form-control input-md"
                                     wire:model='slug'
                                     >
-                                    @error('slug')
-                                        <p class="text-danger">{{$message}}</p>
-                                    @enderror
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>

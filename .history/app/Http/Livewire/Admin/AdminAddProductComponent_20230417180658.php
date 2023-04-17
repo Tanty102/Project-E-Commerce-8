@@ -50,7 +50,6 @@ class AdminAddProductComponent extends Component
             'stock_status' => 'required',
             'quantity' => 'required|numeric',
             'image' => 'required|mimes:jpeg,png',
-            'category_id' => 'required',
         ]);
     }
 
@@ -67,7 +66,6 @@ class AdminAddProductComponent extends Component
             'stock_status' => 'required',
             'quantity' => 'required|numeric',
             'image' => 'required|mimes:jpeg,png',
-            'category_id' => 'required',
         ]);
 
         $product = new Product();
