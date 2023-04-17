@@ -319,7 +319,7 @@
             start : [100000,100000000],
             connect:true,
             range :{
-                'min' : 100000,
+                'min' : 100000a,
                 'max' : 100000000
             },
             pips : {

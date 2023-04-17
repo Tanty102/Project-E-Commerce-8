@@ -22,8 +22,8 @@ class ShopComponent extends Component
         $this->pagesize = 12;
 
         //Thanh trượt chọn giá tiền
-        $this->min_price = 100000;
-        $this->max_price = 100000000;
+        $this->min_price = 1;
+        $this->max_price = 1000;
     }
 
     public function store($product_id,$product_name,$product_price)
@@ -43,21 +43,18 @@ class ShopComponent extends Component
         }
         else if($this->sorting=='price')
         {
-            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('regular_price','ASC')->paginate($this->pagesize);
+            $products = Product::orderBy('regular_price','ASC')->paginate($this->pagesize);
         }
         else if($this->sorting=='price-desc')
         {
-            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->orderBy('regular_price','DESC')->paginate($this->pagesize);
+            $products = Product::orderBy('regular_price','DESC')->paginate($this->pagesize);
         }
         else{
-            $products = Product::whereBetween('regular_price',[$this->min_price,$this->max_price])->paginate($this->pagesize);
+            $products = Product::paginate($this->pagesize);
         }
 
         $categories = Category::all();
 
-        return view('livewire.shop-component',[
-            'products'=> $products,
-            'categories'=>$categories])
-            ->layout("layouts.base");
+        return view('livewire.shop-component',['products'=> $products, 'categories'=>$categories])->layout("layouts.base");
     }
 }

@@ -177,12 +177,7 @@
                     </div><!-- brand widget-->
 
                     <div class="widget mercado-widget filter-widget price-filter">
-                        <h2 class="widget-title">Price 
-                            <span class="text-info">
-                                
-                                {{ number_format($min_price, 0, ',','.') }}₫ - {{ number_format($max_price, 0, ',','.') }}₫
-                            </span>
-                        </h2>
+                        <h2 class="widget-title">Price</h2>
                         <div class="widget-content" style="padding: 10px 5px 40px 5px;">
                             <div id="slider" wire:ignore></div>
                         </div>
@@ -316,11 +311,11 @@
     <script>
         var slider = document.getElementById('slider');
         noUiSlider.create(slider,{
-            start : [100000,100000000],
+            start : [1,1000],
             connect:true,
             range :{
-                'min' : 100000,
-                'max' : 100000000
+                'min' : 1,
+                'max' : 1000
             },
             pips : {
                 mode : 'steps',
@@ -335,4 +330,3 @@
         })
     </script>
 @endpush
-

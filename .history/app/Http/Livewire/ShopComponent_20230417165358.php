@@ -33,6 +33,21 @@ class ShopComponent extends Component
         return redirect()->route('product.cart');
     }
 
+    public function updatedMinPrice($value)
+    {
+        $this->min_price = (int) str_replace('.', '', $value);
+    }
+
+    public function updatedMaxPrice($value)
+    {
+        $this->max_price = (int) str_replace('.', '', $value);
+    }
+
+    public function formatPrice($value)
+    {
+        return number_format($value, 0, '.', '.');
+    }
+
     use WithPagination;
     public function render()
     {

@@ -319,7 +319,7 @@
             start : [100000,100000000],
             connect:true,
             range :{
-                'min' : 100000,
+                'min' : 1100000,
                 'max' : 100000000
             },
             pips : {
@@ -335,4 +335,3 @@
         })
     </script>
 @endpush
-

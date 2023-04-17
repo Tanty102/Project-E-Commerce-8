@@ -316,7 +316,7 @@
     <script>
         var slider = document.getElementById('slider');
         noUiSlider.create(slider,{
-            start : [100000,100000000],
+            start : [200000,100000000],
             connect:true,
             range :{
                 'min' : 100000,
@@ -335,4 +335,3 @@
         })
     </script>
 @endpush
-

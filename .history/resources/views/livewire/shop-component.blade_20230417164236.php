@@ -312,7 +312,7 @@
     <!--main area-->
 </div>
 
-@push('scripts')
+{{-- @push('scripts')
     <script>
         var slider = document.getElementById('slider');
         noUiSlider.create(slider,{
@@ -334,5 +334,38 @@
             @this.set('max_price', value[1]);
         })
     </script>
-@endpush
+@endpush --}}
 
+
+@push('scripts')
+    <script>
+        var slider = document.getElementById('slider');
+noUiSlider.create(slider,{
+    start : [100000,100000000],
+    connect:true,
+    range :{
+        'min' : 100000,
+        'max' : 100000000
+    },
+    pips : {
+        mode : 'steps',
+        stepped:true,
+        density : 4
+    },
+    format: {
+        to: function(value) {
+            return value.toLocaleString('vi-VN', {maximumFractionDigits: 0});
+        },
+        from: function(value) {
+            return Number(value.replace(/\./g,''));
+        }
+    }
+});
+
+slider.noUiSlider.on('update', function(value){
+    @this.set('min_price', value[0]);
+    @this.set('max_price', value[1]);
+});
+
+    </script>
+@endpush

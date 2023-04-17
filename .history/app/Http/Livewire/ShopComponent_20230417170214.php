@@ -22,7 +22,7 @@ class ShopComponent extends Component
         $this->pagesize = 12;
 
         //Thanh trượt chọn giá tiền
-        $this->min_price = 100000;
+        $this->min_price = 200000;
         $this->max_price = 100000000;
     }
 
