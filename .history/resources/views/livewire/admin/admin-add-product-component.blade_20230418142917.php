@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                        <div class="row">
                             <div class="col-md-6">
-                                Edit Product
+                                Add New Product
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.products')}}" class="btn btn-success pull-right">
@@ -19,7 +19,7 @@
                         @if (Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
-                       <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent='updateProduct'>
+                       <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent='addProduct'>
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Product Name</label>
                                 <div class="col-md-4">
@@ -132,13 +132,11 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Product Image</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="newimage">
-                                    @if ($newimage)
-                                        <img src="{{$newimage->temporaryUrl()}}" width="120">
-                                    @else
-                                        <img src="{{asset('assets/images/products')}}/{{$image}}" width="120">
+                                    <input type="file" class="input-file" wire:model="image">
+                                    @if ($image)
+                                        <img src="{{$image->temporaryUrl()}}" width="120">
                                     @endif
-                                    @error('newimage')
+                                    @error('image')
                                         <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </div>
@@ -162,7 +160,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
 
@@ -174,31 +172,3 @@
         </div>
     </div>
 </div>
-
-@push('scripts')
-    <script>
-        $(function(){
-            tinymce.init({
-                selector:'#short_description',
-                setup:function(editor){
-                    editor.on('Change', function(e){
-                        tinyMCE.triggerSave();
-                        var sd_data = $('#short_description').val();
-                        @this.set('short_description',sd_data);
-                    });
-                }
-            });
-
-            tinymce.init({
-                selector:'#description',
-                setup:function(editor){
-                    editor.on('Change', function(e){
-                        tinyMCE.triggerSave();
-                        var d_data = $('#description').val();
-                        @this.set('description',d_data);
-                    });
-                }
-            });
-        });
-    </script>
-@endpush
