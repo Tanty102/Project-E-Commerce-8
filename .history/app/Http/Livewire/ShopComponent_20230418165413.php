@@ -49,7 +49,6 @@ class ShopComponent extends Component
             {
                 Cart::instance('wishlist')->remove($witem->rowId);
                 $this->emitTo('wishlist-count-component','refreshComponent');
-                return;
             }
         }
     }
