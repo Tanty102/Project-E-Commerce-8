@@ -121,7 +121,7 @@
                                             </a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{route('admin.coupons')}}" title="All Coupon">
+                                            <a href="{{route('admin.sale')}}" title="All Coupon">
                                                 All Coupon
                                             </a>
                                         </li>
