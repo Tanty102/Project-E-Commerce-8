@@ -10,30 +10,30 @@ class CartComponent extends Component
     // Tăng số lượng sản phẩm ở giỏ hàng
     public function increaseQuantity($rowId)
     {
-        $product = Cart::instance('cart')->get($rowId);
+        $product = Cart::get($rowId);
         $qty = $product->qty + 1;
-        Cart::instance('cart')->update($rowId,$qty);
+        Cart::update($rowId,$qty);
     }
 
     // Giảm số lượng sản phẩm ở giỏ hàng
     public function decreaseQuantity($rowId)
     {
-        $product = Cart::instance('cart')->get($rowId);
+        $product = Cart::get($rowId);
         $qty = $product->qty - 1;
-        Cart::instance('cart')->update($rowId,$qty);
+        Cart::update($rowId,$qty);
     }
 
     // Xoá sản phẩm ở giỏ hàng
     public function destroy($rowId)
     {
-        Cart::instance('cart')->remove($rowId);
+        Cart::remove($rowId);
         session()->flash('success_message','Item has been removed successfully');
     }
 
     // Xoá tất cả sản phẩm ở giỏ hàng
     public function destroyAll()
     {
-        Cart::instance('cart')->destroy();
+        Cart::destroy();
     }
 
 

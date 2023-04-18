@@ -75,7 +75,7 @@
                             color: #ff7007;
                         }
                         .fill-heart {
-                            color: #ff7007 !important;
+                            color: #ff7007;
                         }
                     </style>
 
@@ -118,8 +118,7 @@
                                                     <i class="fa fa-heart fill-heart"></i>
                                                 </a>
                                             @else
-                                                <a href="#"
-                                                    wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">
+                                                <a href="#" wire:click.prevent='addToWishlist'>
                                                     <i class="fa fa-heart"></i>
                                                 </a>
                                             @endif
