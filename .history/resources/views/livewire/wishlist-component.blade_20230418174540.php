@@ -30,12 +30,6 @@
                 .fill-heart {
                     color: #ff7007 !important;
                 }
-                h4 {
-                    font-size: 30px;
-                    text-align: center;
-                    color: red;
-                    font-weight: 900;
-                }
             </style>
 
             <div class="row">
@@ -65,7 +59,7 @@
                                     </div>
 
                                     <a href="#" class="btn add-to-cart"
-                                        wire:click.prevent="moveProductFromWishlistToCart('{{$item->rowId}}')">
+                                        wire:click.prevent="moveProductFromWishlistToCart({{$item->model->id}},'{{$item->model->name}}',{{$item->model->regular_price}})">
                                         Di chuyển đến giỏ hàng
                                     </a>
                                     <div class="product-wish">

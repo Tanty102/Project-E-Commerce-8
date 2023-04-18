@@ -1,13 +1,4 @@
 <div>
-
-    <style>
-        h4 {
-            font-size: 30px;
-            text-align: center;
-            color: red;
-            font-weight: 900;
-        }
-    </style>
     <!--main area-->
     <main id="main" class="main-site">
 

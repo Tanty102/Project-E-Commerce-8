@@ -30,12 +30,6 @@
                 .fill-heart {
                     color: #ff7007 !important;
                 }
-                h4 {
-                    font-size: 30px;
-                    text-align: center;
-                    color: red;
-                    font-weight: 900;
-                }
             </style>
 
             <div class="row">
