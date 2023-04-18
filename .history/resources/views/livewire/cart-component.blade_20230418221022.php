@@ -111,9 +111,9 @@
                         {{Cart::instance("saveForLater")->count()}} item(s)
                         Save For Later
                     </h3>
-                    @if (Session::has('s_success_message'))
+                    @if (Session::has('success_message'))
                     <div class="alert alert-success">
-                        <strong>Success</strong> {{Session::get('s_success_message')}}
+                        <strong>Success</strong> {{Session::get('success_message')}}
                     </div>
                     @endif
                     @if(Cart::instance('saveForLater')->count() > 0)

@@ -111,9 +111,9 @@
                         {{Cart::instance("saveForLater")->count()}} item(s)
                         Save For Later
                     </h3>
-                    @if (Session::has('s_success_message'))
+                    @if (Session::has('success_message'))
                     <div class="alert alert-success">
-                        <strong>Success</strong> {{Session::get('s_success_message')}}
+                        <strong>Success</strong> {{Session::get('success_message')}}
                     </div>
                     @endif
                     @if(Cart::instance('saveForLater')->count() > 0)
@@ -133,14 +133,17 @@
                                 <p class="price">{{ number_format($item->model->regular_price, 0, ',','.') }}₫</p>
                             </div>
                             <div class="quantity">
-                                <p class="text-center" wire:click.prevent="moveToCart('{{$item->rowId}}')">
+                                <p class="text-center" wire:click.prevent="switchToSaveForLater('{{$item->rowId}}')">
                                     <a href="#">Move To Cart</a>
                                 </p>
                             </div>
+                            <div class="price-field sub-total">
+                                <p class="price">{{ number_format($item->subtotal, 0, ',','.') }}₫</p>
+                            </div>
                             <div class="delete">
-                                <a href="#" wire:click.prevent="deleteFromSaveForLater('{{$item->rowId}}')" class="btn btn-delete"
+                                <a href="#" wire:click.prevent="destroy('{{$item->rowId}}')" class="btn btn-delete"
                                     title="">
-                                    <span>Delete from save for later</span>
+                                    <span>Delete from your cart</span>
                                     <i class="fa fa-times-circle" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -148,7 +151,7 @@
                         @endforeach
                     </ul>
                     @else
-                    <h4>No item save for later</h4>
+                    <h4>Không có sản phẩm nào trong giỏ hàng</h4>
                     @endif
                 </div>
 

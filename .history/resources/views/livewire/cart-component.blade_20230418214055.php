@@ -107,19 +107,16 @@
                 </div>
 
                 <div class="wrap-iten-in-cart">
-                    <h3 class="title-box" style="border-bottom: 1px solid; padding-bottom:15px;">
-                        {{Cart::instance("saveForLater")->count()}} item(s)
-                        Save For Later
-                    </h3>
-                    @if (Session::has('s_success_message'))
+                    <h3 class="title-box" style="border-bottom: 1px solid; padding-bottom:15px;">Save For Later</h3>
+                    @if (Session::has('success_message'))
                     <div class="alert alert-success">
-                        <strong>Success</strong> {{Session::get('s_success_message')}}
+                        <strong>Success</strong> {{Session::get('success_message')}}
                     </div>
                     @endif
-                    @if(Cart::instance('saveForLater')->count() > 0)
+                    @if(Cart::instance('cart')->count() > 0)
                     <h3 class="box-title">Products Name</h3>
                     <ul class="products-cart">
-                        @foreach (Cart::instance('saveForLater')->content() as $item)
+                        @foreach (Cart::instance('cart')->content() as $item)
                         <li class="pr-cart-item">
                             <div class="product-image">
                                 <figure><img src="{{ asset('assets/images/products') }}/{{$item->model->image}}"
@@ -133,14 +130,27 @@
                                 <p class="price">{{ number_format($item->model->regular_price, 0, ',','.') }}₫</p>
                             </div>
                             <div class="quantity">
-                                <p class="text-center" wire:click.prevent="moveToCart('{{$item->rowId}}')">
-                                    <a href="#">Move To Cart</a>
+                                <div class="quantity-input">
+                                    <input type="text" name="product-quatity" value="{{$item->qty}}" data-max="120"
+                                        pattern="[0-9]*">
+                                    <a class="btn btn-increase" href="#"
+                                        wire:click.prevent="increaseQuantity('{{ $item->rowId }}')">
+                                    </a>
+                                    <a class="btn btn-reduce" href="#"
+                                        wire:click.prevent="decreaseQuantity('{{$item->rowId}}')">
+                                    </a>
+                                </div>
+                                <p class="text-center" wire:click.prevent="switchToSaveForLater('{{$item->rowId}}')">
+                                    <a href="#">Save For Later</a>
                                 </p>
                             </div>
+                            <div class="price-field sub-total">
+                                <p class="price">{{ number_format($item->subtotal, 0, ',','.') }}₫</p>
+                            </div>
                             <div class="delete">
-                                <a href="#" wire:click.prevent="deleteFromSaveForLater('{{$item->rowId}}')" class="btn btn-delete"
+                                <a href="#" wire:click.prevent="destroy('{{$item->rowId}}')" class="btn btn-delete"
                                     title="">
-                                    <span>Delete from save for later</span>
+                                    <span>Delete from your cart</span>
                                     <i class="fa fa-times-circle" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -148,7 +158,7 @@
                         @endforeach
                     </ul>
                     @else
-                    <h4>No item save for later</h4>
+                    <h4>Không có sản phẩm nào trong giỏ hàng</h4>
                     @endif
                 </div>
 
