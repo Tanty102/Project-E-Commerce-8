@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Edit Coupon 
+                                Add New Coupon 
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.coupons')}}" class="btn btn-success pull-right">All Coupon</a>
@@ -17,7 +17,7 @@
                         @if (Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
-                        <form action="" class="form-horizontal" wire:submit.prevent='updateCoupon'>
+                        <form action="" class="form-horizontal" wire:submit.prevent='storeCoupon'>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Coupon Code</label>
                                 <div class="col-md-4">
@@ -80,11 +80,10 @@
                                 </div>
                             </div>
 
-
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -94,18 +93,32 @@
         </div>
     </div>
 </div>
-
+{{-- 
+@push('scripts')
+    <script>
+        $(function(){
+            $('#expiry_date').datetimepicker({
+                format: 'Y-MM-DD'
+            })
+            .on('change', function(ev){
+                var data = $('#expiry_date').val();
+                @this.set('expiry_date',data);
+            });
+        });
+    </script>
+@endpush --}}
 
 
 @push('scripts')
     <script>
         $(function(){
             $('#expiry_date').datetimepicker({
-                format: 'Y-m-d H:i:s'
+                format: 'YYYY-MM-DD'
             })
             .on('change', function(ev){
                 var data = $('#expiry_date').val();
-                @this.set('expiry_date',data);
+                var formattedDate = moment(data).format('YYYY-DD-MM');
+                @this.set('expiry_date',formattedDate);
             });
         });
     </script>

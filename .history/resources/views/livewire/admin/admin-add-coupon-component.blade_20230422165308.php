@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Edit Coupon 
+                                Add New Coupon 
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.coupons')}}" class="btn btn-success pull-right">All Coupon</a>
@@ -17,7 +17,7 @@
                         @if (Session::has('message'))
                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
-                        <form action="" class="form-horizontal" wire:submit.prevent='updateCoupon'>
+                        <form action="" class="form-horizontal" wire:submit.prevent='storeCoupon'>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Coupon Code</label>
                                 <div class="col-md-4">
@@ -70,7 +70,7 @@
 
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Ngày hết hạn</label>
-                                <div class="col-md-4" wire:ignore>
+                                <div class="col-md-4">
                                     <input type="text" id="expiry_date" placeholder="Ngày hết hạn" class="form-control input-md"
                                     wire:model='expiry_date'
                                     >
@@ -80,11 +80,10 @@
                                 </div>
                             </div>
 
-
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -95,13 +94,11 @@
     </div>
 </div>
 
-
-
 @push('scripts')
     <script>
         $(function(){
             $('#expiry_date').datetimepicker({
-                format: 'Y-m-d H:i:s'
+                format: 'Y-MM-DD'
             })
             .on('change', function(ev){
                 var data = $('#expiry_date').val();

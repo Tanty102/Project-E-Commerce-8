@@ -28,7 +28,7 @@ class AdminEditCouponComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
-            'code' => 'required',
+            'code' => 'required|unique:coupons',
             'type' => 'required',
             'value' => 'required|numeric',
             'cart_value' => 'required|numeric',
@@ -39,7 +39,7 @@ class AdminEditCouponComponent extends Component
     public function updateCoupon()
     {
         $this->validate([
-            'code' => 'required',
+            'code' => 'required|unique:coupons',
             'type' => 'required',
             'value' => 'required|numeric',
             'cart_value' => 'required|numeric',
