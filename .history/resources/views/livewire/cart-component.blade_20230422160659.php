@@ -83,7 +83,7 @@
                             </b></p>
                             @if (Session::has('coupon'))
                                 <p class="summary-info"><span class="title">Discount ({{Session::get('coupon')['code']}}) 
-                                    <a href="#" wire:click.prevent='removeCoupon'>
+                                    <a href="#">
                                         <i class="fa fa-times text-danger"></i>
                                     </a> 
                                 </span><b class="index"> -{{ number_format ($discount, 0, ',','.')}}₫</b></p>

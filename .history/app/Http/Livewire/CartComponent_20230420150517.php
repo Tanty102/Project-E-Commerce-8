@@ -9,7 +9,7 @@ use Cart;
 class CartComponent extends Component
 {
     public $haveCouponCode;
-    public $couponCode;
+    public $CouponCode;
     public $discount;
     public $subtotalAfterDiscount;
     public $taxAfterDiscount;
@@ -74,7 +74,7 @@ class CartComponent extends Component
 
     public function applyCouponCode()
     {
-        $coupon = Coupon::where('code', $this->couponCode)->where('cart_value','<=',Cart::instance('cart')->subtotal())->first();
+        $coupon = Coupon::where('code', $this->CouponCode)->where('cart_value','<=',Cart::instance('cart')->subtotal())->first();
         if (!$coupon)
         {
             session()->flash('coupon_message','Coupon code is invalid');
@@ -100,17 +100,11 @@ class CartComponent extends Component
             else
             {
                 $this->discount = (Cart::instance('cart')->subtotal() * session()->get('coupon')['value'])/100;
-
             }
             $this->subtotalAfterDiscount = Cart::instance('cart')->subtotal() - $this->discount;
             $this->taxAfterDiscount = ($this->subtotalAfterDiscount * config('cart.tax'))/100;
-            $this->totalAfterDiscount = $this->subtotalAfterDiscount +$this->taxAfterDiscount;
+            $this->totalAfterDiscount = $this->subtotalAfterDiscount + $this->taxAfterDiscount;
         }
-    }
-
-    public function removeCoupon()
-    {
-        session()->forget('coupon');
     }
 
     public function render()

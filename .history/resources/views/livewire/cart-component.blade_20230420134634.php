@@ -81,52 +81,30 @@
                         <p class="summary-info"><span class="title">Subtotal</span><b class="index">
                                 {{ number_format(floatval(str_replace(',', '', Cart::instance('cart')->subtotal())), 0, ',', '.') }}₫
                             </b></p>
-                            @if (Session::has('coupon'))
-                                <p class="summary-info"><span class="title">Discount ({{Session::get('coupon')['code']}}) 
-                                    <a href="#" wire:click.prevent='removeCoupon'>
-                                        <i class="fa fa-times text-danger"></i>
-                                    </a> 
-                                </span><b class="index"> -{{ number_format ($discount, 0, ',','.')}}₫</b></p>
-                                <p class="summary-info"><span class="title">Subtotal with Discount</span><b class="index">{{ number_format ($subtotalAfterDiscount, 0, ',','.')}}₫</b></p>
-                                <p class="summary-info"><span class="title">Tax ({{config('cart.tax')}}%)</span><b class="index">{{ number_format ($taxAfterDiscount, 0, ',','.')}}₫</b></p>
-                                <p class="summary-info total-info "><span class="title">Total</span><b class="index">{{ number_format ($totalAfterDiscount, 0, ',','.')}}₫</b></p>
-                            @else
-                                <p class="summary-info"><span class="title">Thuế</span><b class="index">
-                                        {{ number_format(floatval(str_replace(',', '', Cart::instance('cart')->tax())), 0, ',', '.') }}₫
-                                    </b>
-                                </p>
-                                <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b>
-                                </p>
-                                <p class="summary-info total-info "><span class="title">Total</span><b class="index">
-                                        {{ number_format(floatval(str_replace(',', '', Cart::instance('cart')->total())), 0, ',', '.') }}₫
-                                    </b>
-                                </p>
-                            @endif
+                        <p class="summary-info"><span class="title">Thuế</span><b class="index">
+                                {{ number_format(floatval(str_replace(',', '', Cart::instance('cart')->tax())), 0, ',', '.') }}₫
+                            </b></p>
+                        <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b>
+                        </p>
+                        <p class="summary-info total-info "><span class="title">Total</span><b class="index">
+                                {{ number_format(floatval(str_replace(',', '', Cart::instance('cart')->total())), 0, ',', '.') }}₫
+                            </b></p>
                     </div>
                     <div class="checkout-info">
-                    @if (!Session::has('coupon'))
-                            <label class="checkbox-field">
-                                <input class="frm-input " name="have-code" id="have-code" value="1" type="checkbox" wire:model='haveCouponCode'><span>
-                                    I have coupon code</span>
-                            </label>
-                            @if ($haveCouponCode == 1)
-                                <div class="summary-item">
-                                    <form wire:submit.prevent='applyCouponCode'>
-                                        <h4 class="title-box">Coupon Code</h4>
-                                        @if (Session::has('coupon_message'))
-                                        <div class="alert alert-danger" role="danger">
-                                            {{Session::get('coupon_message')}}
-                                        </div>
-                                        @endif
-                                        <p class="row-in-form">
-                                            <label for="coupon-code">Enter your coupon code:</label>
-                                            <input type="text" name="coupon-code" wire:model='couponCode'>
-                                        </p>
-                                        <button type="submit" class="btn btn-small">Apply</button>
-                                    </form>
-                                </div>
-                            @endif
-                        @endif
+                        <label class="checkbox-field">
+                            <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>
+                                I have coupon code</span>
+                        </label>
+                        <div class="summary-item">
+                            <form>
+                                <h4 class="title-box">Coupon Code</h4>
+                                <p class="row-in-form">
+                                    <label for="coupon-code">Enter your coupon code:</label>
+                                    <input type="text" name="coupon-code">
+                                </p>
+                                <button type="submit" class="btn btn-small">Apply</button>
+                            </form>
+                        </div>
                         <a class="btn btn-checkout" href="checkout.html">Check out</a>
                         <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right"
                                 aria-hidden="true"></i></a>

@@ -39,7 +39,7 @@
                                         @else
                                             <td>{{ number_format($coupon->value, 0, ',','.') }} %</td>
                                         @endif
-                                        <td>{{ number_format($coupon->cart_value, 0, ',','.') }}₫</td>
+                                        <td>{{ $coupon->cart_value }}</td>
                                         <td>
                                             <a href="{{route('admin.editcoupon',['coupon_id'=>$coupon->id])}}">
                                                 <i class="fa fa-edit fa-2x"></i>

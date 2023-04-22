@@ -82,11 +82,7 @@
                                 {{ number_format(floatval(str_replace(',', '', Cart::instance('cart')->subtotal())), 0, ',', '.') }}₫
                             </b></p>
                             @if (Session::has('coupon'))
-                                <p class="summary-info"><span class="title">Discount ({{Session::get('coupon')['code']}}) 
-                                    <a href="#" wire:click.prevent='removeCoupon'>
-                                        <i class="fa fa-times text-danger"></i>
-                                    </a> 
-                                </span><b class="index"> -{{ number_format ($discount, 0, ',','.')}}₫</b></p>
+                                <p class="summary-info"><span class="title">Discount ({{Session::get('coupon')['code']}})</span><b class="index"> -{{ number_format ($discount, 0, ',','.')}}₫</b></p>
                                 <p class="summary-info"><span class="title">Subtotal with Discount</span><b class="index">{{ number_format ($subtotalAfterDiscount, 0, ',','.')}}₫</b></p>
                                 <p class="summary-info"><span class="title">Tax ({{config('cart.tax')}}%)</span><b class="index">{{ number_format ($taxAfterDiscount, 0, ',','.')}}₫</b></p>
                                 <p class="summary-info total-info "><span class="title">Total</span><b class="index">{{ number_format ($totalAfterDiscount, 0, ',','.')}}₫</b></p>
