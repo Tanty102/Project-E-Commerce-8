@@ -144,8 +144,8 @@ class CartComponent extends Component
             session()->put('checkout',[
                 'discount' => 0,
                 'subtotal' => Cart::instance('cart')->subtotal(),
-                'tax' => Cart::instance('cart')->tax(),
-                'total' => Cart::instance('cart')->total()
+                'tax' => $this->Cart::instance('cart')->tax(),
+                'total' => $this->Cart::instanceof('cart')->total(),
             ]);
         }
     }
@@ -163,7 +163,6 @@ class CartComponent extends Component
                 $this->calculateDiscounts();
             }
         }
-        $this->setAmountForCheckout();
         return view('livewire.cart-component')->layout("layouts.base");
     }
 }

@@ -145,7 +145,7 @@ class CartComponent extends Component
                 'discount' => 0,
                 'subtotal' => Cart::instance('cart')->subtotal(),
                 'tax' => Cart::instance('cart')->tax(),
-                'total' => Cart::instance('cart')->total()
+                'total' => Cart::instanceof('cart')->total(),
             ]);
         }
     }
