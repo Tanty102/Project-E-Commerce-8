@@ -103,7 +103,7 @@ class CheckoutComponent extends Component
         $order->country = $this->country;
         $order->zipcode = $this->zipcode;
         $order->status = 'ordered';
-        $order->is_shipping_different = $this->ship_to_different ? 1:0;
+        $order->ship_to_different = $this->ship_to_different ? 1:0;
         $order->save();
 
 

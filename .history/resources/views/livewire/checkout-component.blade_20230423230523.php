@@ -9,7 +9,7 @@
             </ul>
         </div>
         <div class=" main-content-area">
-            <form wire:submit.prevent='placeOrder'>
+            <form action="">
             <div class="row">
                 <div class="col-md-12">
                     <div class="wrap-address-billing">
@@ -158,12 +158,8 @@
                         </label>
                         @error('paymentmode') <span class="text-danger">{{$message}}</span> @enderror
                     </div>
-                    @if (Session::has('checkout'))
-                        <p class="summary-info grand-total"><span>Grand Total</span>
-                            <span class="grand-total-price">{{ number_format(Session::get('checkout')['total'], 0, ',', '.') }}₫
-                            </span>
-                        </p>
-                    @endif
+                    <p class="summary-info grand-total"><span>Grand Total</span> <span
+                            class="grand-total-price">$100.00</span></p>
                     <button type="submit" class="btn btn-medium">Place order now</button>
                 </div>
                 <div class="summary-item shipping-method">

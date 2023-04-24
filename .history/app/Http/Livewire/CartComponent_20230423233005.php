@@ -135,7 +135,6 @@ class CartComponent extends Component
             session()->forget('checkout');
             return;
         }
-        
         if(session()->has('coupon'))
         {
             session()->put('checkout',[

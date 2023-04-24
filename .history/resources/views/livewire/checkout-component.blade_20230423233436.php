@@ -160,8 +160,7 @@
                     </div>
                     @if (Session::has('checkout'))
                         <p class="summary-info grand-total"><span>Grand Total</span>
-                            <span class="grand-total-price">{{ number_format(Session::get('checkout')['total'], 0, ',', '.') }}₫
-                            </span>
+                            <span class="grand-total-price">{{Session::get('checkout')['total'], 0, ',', '.'}}₫</span>
                         </p>
                     @endif
                     <button type="submit" class="btn btn-medium">Place order now</button>

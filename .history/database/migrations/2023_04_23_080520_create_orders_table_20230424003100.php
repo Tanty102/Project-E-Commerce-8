@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->decimal('subtotal', 15,2);
+            $table->decimal('subtotal', 15 ,2)->default(0);
             $table->decimal('discount')->default(0);
             $table->decimal('tax');
             $table->decimal('total');

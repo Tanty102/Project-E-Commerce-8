@@ -12,7 +12,7 @@ use Livewire\Component;
 
 class CheckoutComponent extends Component
 {
-    public $ship_to_different;
+    public $is_shipping_different;
 
     public $firstname;
     public $lastname;
@@ -55,7 +55,7 @@ class CheckoutComponent extends Component
             'paymentmode' => 'required'
         ]);
 
-        if($this->ship_to_different)
+        if($this->is_shipping_different)
         {
             $this->validateOnly($fields,[
                 's_firstname' => 'required',
@@ -103,7 +103,7 @@ class CheckoutComponent extends Component
         $order->country = $this->country;
         $order->zipcode = $this->zipcode;
         $order->status = 'ordered';
-        $order->is_shipping_different = $this->ship_to_different ? 1:0;
+        $order->is_shipping_different = $this->is_shipping_different ? 1:0;
         $order->save();
 
 
@@ -117,7 +117,7 @@ class CheckoutComponent extends Component
             $orderItem->save();
         }
 
-        if($this->ship_to_different)
+        if($this->is_shipping_different)
         {
             $this->validate([
                 's_firstname' => 'required',
