@@ -7,7 +7,6 @@ use App\Models\OrderItem;
 use App\Models\Shipping;
 use App\Models\Transaction;
 use Cart;
-use Exception;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Stripe;
@@ -235,14 +234,6 @@ class CheckoutComponent extends Component
                     $this->makeTransaction($order->id,'approved');
                     $this->resetCart();
                 }
-                else{
-                    session()->flash('stripe_error', 'Error in Transaction!');
-                    $this->thankyou = 0;
-                }
-            } catch (Exception $e)
-            {
-                session()->flash('stripe_error', $e->getMessage());
-                $this->thankyou = 0;
             }
         }
         
