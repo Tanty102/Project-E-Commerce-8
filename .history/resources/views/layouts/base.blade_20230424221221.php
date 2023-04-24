@@ -125,11 +125,11 @@
                                                 All Coupon
                                             </a>
                                         </li>
-                                        <li class="menu-item">
+                                        {{-- <li class="menu-item">
                                             <a href="{{route('admin.orders')}}" title="All Orders">
                                                 All Orders
                                             </a>
-                                        </li>
+                                        </li> --}}
                                         <li class="menu-item">
                                             <a href="{{ route('logout')}}"
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>

@@ -6,8 +6,6 @@ use Closure;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Auth;
-
 
 class AuthAdmin
 {
@@ -18,19 +16,15 @@ class AuthAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() == 'ADM') {
-            // The user is logged in...
-            return $next($request);
+        if(session('utype') === 'ADM')
+        {
+        return $next($request);
         }
-        // if(session('utype') === 'ADM')
-        // {
-        // return $next($request);
-        // }
-        // else
-        // {
-        //     Session()->flush();
-        //     return redirect()->route('login');
-        // }
+        else
+        {
+            Session()->flush();
+            return redirect()->route('login');
+        }
         return $next($request);
     }
 }

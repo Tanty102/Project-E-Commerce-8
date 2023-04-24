@@ -68,12 +68,12 @@ Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
 // });
 
 // Dành cho người dùng hoặc khách hàng:
-    Route::middleware(['auth:sanctum','verified'])->group(function(){
+Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
 });
 
 // Dành cho quản trị viên:
-    Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
+Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
     Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category/add',AdminAddCategoryComponent::class)->name('admin.addcategory');
@@ -93,6 +93,6 @@ Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
     Route::get('/admin/coupon/add',AdminAddCouponComponent::class)->name('admin.addcoupon');
     Route::get('/admin/coupon/edit/{coupon_id}',AdminEditCouponComponent::class)->name('admin.editcoupon');
 
-    Route::get('/admin/orders',AdminOrderComponent::class)->name('admin.orders');
+    // Route::get('/admin/orders',AdminOrderComponent::class)->name('admin.orders');
 
 });
