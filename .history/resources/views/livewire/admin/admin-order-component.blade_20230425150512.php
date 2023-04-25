@@ -1,6 +1,6 @@
 <div>
 
-    <style>
+    {{-- <style>
         nav svg {
             height: 20px;
         }
@@ -8,7 +8,7 @@
         nav .hidden {
             display: block !important;
         }
-    </style>
+    </style> --}}
 
     <div class="container" style="padding: 30px 0;">
         <div class="row">
@@ -21,18 +21,18 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>OrderId</th>
-                                    <th>Subtotal</th>
-                                    <th>Discount</th>
-                                    <th>Tax</th>
-                                    <th>Total</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Mobile</th>
-                                    <th>Email</th>
-                                    <th>Zipcode</th>
-                                    <th>Status</th>
-                                    <th>Order Date</th>
+                                    <td>OrderId</td>
+                                    <td>Subtotal</td>
+                                    <td>Discount</td>
+                                    <td>Tax</td>
+                                    <td>Total</td>
+                                    <td>First Name</td>
+                                    <td>Last Name</td>
+                                    <td>Mobile</td>
+                                    <td>Email</td>
+                                    <td>Zipcode</td>
+                                    <td>Status</td>
+                                    <td>Order Date</td>
                                 </tr>
                             </thead>
                             <tbody>

@@ -22,8 +22,7 @@ class AuthAdmin
         //     // The user is logged in...
         //     return $next($request);
         // }
-
-        if(Auth::user()->utype === 'ADM')
+        if(session('utype') === 'ADM')
         {
         return $next($request);
         }
@@ -32,7 +31,6 @@ class AuthAdmin
             Session()->flush();
             return redirect()->route('login');
         }
-
         return $next($request);
     }
 }
