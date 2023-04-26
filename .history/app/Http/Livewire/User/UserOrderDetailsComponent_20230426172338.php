@@ -22,7 +22,7 @@ class UserOrderDetailsComponent extends Component
         $order->status = "canceled";
         $order->canceled_date = DB::raw("CURRENT_DATE");
         $order->save();
-        session()->flash('order_message','Order has been canceled');
+        session()->flash('success_message','Item has been saved for later');
     }
 
     public function render()
