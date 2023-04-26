@@ -72,7 +72,7 @@
                                     </div>
                                     @if ($order->status == "delivered" && $item->rstatus == false)    
                                         <div class="price-field sub-total">
-                                            <p class="price"><a href="{{route("user.review",["order_item_id"=>$item->id])}}">Write Review</a></p>
+                                            <p class="price"><a href="{{route("user.review")}}">Write Review</a></p>
                                         </div>
                                     @endif
                                 </li>

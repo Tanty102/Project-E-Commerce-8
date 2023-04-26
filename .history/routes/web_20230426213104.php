@@ -76,7 +76,7 @@ Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
     Route::get('/user/dashboard',UserDashboardComponent::class)->name('user.dashboard');
     Route::get('/user/orders',UserOrdersComponent::class)->name('user.orders');
     Route::get('/user/orders/{order_id}',UserOrderDetailsComponent::class)->name('user.orderdetails');
-    Route::get('/user/review/{order_item_id}',UserReviewComponent::class)->name('user.review');
+    Route::get('/user/review/{order_item_id',UserReviewComponent::class)->name('user.review');
 });
 
 // Dành cho quản trị viên:
