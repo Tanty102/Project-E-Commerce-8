@@ -18,9 +18,6 @@
                         All Orders
                     </div>
                     <div class="panel-body">
-                        @if (Session::has("order_message"))
-                            <div class="alert alert-success" role="alert">{{Session::get("order_message")}}</div>
-                        @endif
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -61,8 +58,8 @@
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="#" wire:click.prevent="updateOrderStatus({{$order->id}},'delivered')">Delivered</a></li>
-                                                    <li><a href="#" wire:click.prevent="updateOrderStatus({{$order->id}},'canceled')">Canceled</a></li>
+                                                    <li><a href="#">Delivered</a></li>
+                                                    <li><a href="#">canceled</a></li>
                                                 </ul>
                                             </div>
                                         </td>

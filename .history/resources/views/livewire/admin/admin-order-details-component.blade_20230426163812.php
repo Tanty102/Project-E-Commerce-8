@@ -104,7 +104,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Billing Details
+                        Billing Items
                     </div>
                     <div class="panel-body">
                         <table class="table">

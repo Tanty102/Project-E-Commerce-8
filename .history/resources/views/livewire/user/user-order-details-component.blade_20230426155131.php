@@ -6,47 +6,10 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Order Details
-                            </div>
-                            <div class="col-md-6">
-                                <a href="{{route('admin.orders')}}" class="btn btn-success pull-right">All Orders</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table">
-                            <tr>
-                                <th>Order Id</th>
-                                <td>{{$order->id}}</td>
-                                <th>Order Date</th>
-                                <td>{{$order->created_at}}</td>
-                                <th>Status</th>
-                                <td>{{$order->status}}</td>
-                                @if ($order->status == "delivered")
-                                <th>Delivered Date</th>
-                                <td>{{$order->delivered_date}}</td>
-                                @elseif($order->status == "canceled")
-                                <th>Cancellation Date</th>
-                                <td>{{$order->canceled_date}}</td>
-                                @endif
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-md-6">
                                 Ordered Items
                             </div>
                             <div class="col-md-6">
-                                
+                                <a href="{{route('user.orders')}}" class="btn btn-success pull-right">My Orders</a>
                             </div>
                         </div>
                     </div>
@@ -104,7 +67,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Billing Details
+                        Billing Items
                     </div>
                     <div class="panel-body">
                         <table class="table">
@@ -212,11 +175,12 @@
                                     <td>{{$order->transaction->created_at}}</td>
                                 </tr>
                             @endif
+
                             {{-- <tr>
                                 <th>Transaction Mode</th>
                                 <td>{{$order->transaction->mode}}</td>
-                            </tr>
-                            <tr>
+                            </tr> --}}
+                            {{-- <tr>
                                 <th>Status</th>
                                 <td>{{$order->transaction->status}}</td>
                             </tr>
