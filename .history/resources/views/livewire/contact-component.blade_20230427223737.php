@@ -53,7 +53,7 @@
 							<div class="contact-box contact-info">
 								<div class="wrap-map">
 									<div class="mercado-google-maps">
-										<iframe src="{{$setting->map}}" width="700" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+										<iframe src="{{$setting->map}}" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"
 											referrerpolicy="no-referrer-when-downgrade"></iframe>
 									</div>
 								</div>

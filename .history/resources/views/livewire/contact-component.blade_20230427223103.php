@@ -53,7 +53,9 @@
 							<div class="contact-box contact-info">
 								<div class="wrap-map">
 									<div class="mercado-google-maps">
-										<iframe src="{{$setting->map}}" width="700" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+										<iframe
+											src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.970622784362!2d105.72008426928102!3d10.008154335981626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a08903d92d1d0d%3A0x2c147a40ead97caa!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBOYW0gQ-G6p24gVGjGoQ!5e0!3m2!1svi!2s!4v1682586487222!5m2!1svi!2s"
+											width="700" height="260" style="border:0;" allowfullscreen="" loading="lazy"
 											referrerpolicy="no-referrer-when-downgrade"></iframe>
 									</div>
 								</div>
@@ -79,7 +81,7 @@
 									<div class="icon-box-item">
 										<i class="fa fa-map-marker" aria-hidden="true"></i>
 										<div class="right-info">
-											<b>Address</b>
+											<b>Mail Office</b>
 											<p>{{$setting->address}}</p>
 										</div>
 									</div>
