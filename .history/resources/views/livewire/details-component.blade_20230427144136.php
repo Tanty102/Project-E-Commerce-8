@@ -168,7 +168,7 @@
                                                 <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
                                                     id="li-comment-20">
                                                     <div id="comment-20" class="comment_container">
-                                                        <img alt="" src="{{ asset('assets/images/author-avata-1.jpg') }}"
+                                                        <img alt="" src="{{ asset('assets/images/author-avata.jpg') }}"
                                                             height="80" width="80">
                                                         <div class="comment-text">
                                                             <div class="star-rating">
