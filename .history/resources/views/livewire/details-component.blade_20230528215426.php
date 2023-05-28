@@ -30,11 +30,9 @@
                                 $images = explode(',',$product->images);
                                 @endphp
                                 @foreach ($images as $image)
-                                @if ($image)
                                 <li data-thumb="{{ asset('assets/images/products') }}/{{$image}}">
                                     <img src="{{ asset('assets/images/products') }}/{{$image}}" alt="{{$product->name}}" />
                                 </li>
-                                @endif
                                 @endforeach
                             </ul>
                         </div>
@@ -172,8 +170,7 @@
 
                                     <div id="comments">
                                         <h2 class="woocommerce-Reviews-title">{{$product->orderItems->where('rstatus',1)->count()}} review for
-                                            <span>{{$product->name}}</span>
-                                        </h2>
+                                            <span>{{$product->name}}</span></h2>
                                         <ol class="commentlist">
                                             @foreach ($product->orderItems->where('rstatus',1) as $orderItem)
                                             <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
