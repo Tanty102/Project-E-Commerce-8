@@ -54,27 +54,17 @@
                         <div class="wrap-login-item ">
                             <div class="login-form form-item form-stl">
                                 <x-validation-errors class="mb-4" />
-                                <form name="frm-login" method="POST" action="{{route('password.update')}}">
+                                <form name="frm-login" method="POST" action="{{route('password.email')}}">
                                     @csrf
-                                    <input type="hidden" name="token" value="{{ $request->route('token') }}">
                                     <fieldset class="wrap-title">
                                         <h3 class="form-title">Reset Password</h3>
                                     </fieldset>
                                     <fieldset class="wrap-input">
                                         <label for="frm-login-uname">Email Address:</label>
-                                        <input type="email" id="frm-login-uname" name="email" placeholder="Type your email address" value="{{$request->email}}"
+                                        <input type="email" id="frm-login-uname" name="email" placeholder="Type your email address" :value="old('email')"
                                             required autofocus>
                                     </fieldset>
-                                    <fieldset class="wrap-input item-width-in-half left-item ">
-                                        <label for="password">Password *</label>
-                                        <input type="password" id="password" name="password" placeholder="Password" required autocomplete="new-password">
-                                    </fieldset>
-                                    <fieldset class="wrap-input item-width-in-half ">
-                                        <label for="password_confirmation">Confirm Password *</label>
-                                        <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" required
-                                            autocomplete="new-password">
-                                    </fieldset>
-                                    <input type="submit" class="btn btn-submit" value="Reset Password" name="submit">
+                                    <input type="submit" class="btn btn-submit" value="Email Password reset Link" name="submit">
                                 </form>
                             </div>
                         </div>
