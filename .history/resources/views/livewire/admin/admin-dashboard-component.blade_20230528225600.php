@@ -66,7 +66,7 @@
                         <div class="row">
                             <div class="col-xs-8 text-left">
                                 <span class="icon-stat-label">Total Revenue</span>
-                                <span class="icon-stat-value">{{ number_format($totalRevenue, 0, ',','.') }}₫</span>
+                                <span class="icon-stat-value">{{$totalRevenue}}₫</span>
                             </div>
                             <div class="col-xs-4 text-center">
                                 <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
@@ -98,7 +98,7 @@
                         <div class="row">
                             <div class="col-xs-8 text-left">
                                 <span class="icon-stat-label">Today Revenue</span>
-                                <span class="icon-stat-value">{{ number_format($todayRevenue, 0, ',','.') }}₫</span>
+                                <span class="icon-stat-value">{{$todayRevenue}}₫</span>
                             </div>
                             <div class="col-xs-4 text-center">
                                 <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
@@ -122,55 +122,6 @@
                         </div>
                         <div class="icon-stat-footer">
                             <i class="fa fa-clock-o"></i> Updated Now
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Latest Order
-                        </div>
-                        <div class="panel-body">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>OrderId</th>
-                                        <th>Subtotal</th>
-                                        <th>Discount</th>
-                                        <th>Tax</th>
-                                        <th>Total</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Mobile</th>
-                                        <th>Email</th>
-                                        <th>Zipcode</th>
-                                        <th>Status</th>
-                                        <th>Order Date</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($orders as $order)
-                                    <tr>
-                                        <td>{{$order->id}}</td>
-                                        <td>{{ number_format($order->subtotal, 0, ',','.') }}₫</td>
-                                        <td>{{ number_format($order->discount, 0, ',','.') }}₫</td>
-                                        <td>{{ number_format($order->tax, 0, ',','.') }}₫</td>
-                                        <td>{{ number_format($order->total, 0, ',','.') }}₫</td>
-                                        <td>{{$order->firstname}}</td>
-                                        <td>{{$order->lastname}}</td>
-                                        <td>{{$order->mobile}}</td>
-                                        <td>{{$order->email}}</td>
-                                        <td>{{$order->zipcode}}</td>
-                                        <td>{{$order->status}}</td>
-                                        <td>{{$order->created_at}}</td>
-                                        <td><a href="{{route('admin.orderdetails',['order_id' => $order->id])}}" class="btn btn-info btn-sm">Details</a></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
