@@ -146,13 +146,13 @@
                                     @if ($newimages)
                                     @foreach ($newimages as $newimage)
                                     @if ($newimage)
-                                        <img src="{{$newimage->temporaryUrl()}}" width="120">
+                                    <img src="{{$newimage->temporaryUrl()}}" width="120">
                                     @endif
                                     @endforeach
                                     @else
                                     @foreach ($images as $image)
                                     @if ($image)
-                                        <img src="{{asset('assets/images/products')}}/{{$image}}" width="120">
+                                    <img src="{{asset('assets/images/products')}}/{{$image}}" width="120">
                                     @endif
                                     @endforeach
                                     @endif

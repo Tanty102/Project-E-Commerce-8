@@ -2,13 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\OrderMail;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Shipping;
 use App\Models\Transaction;
 use Cart;
+use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use Stripe;
 
 class CheckoutComponent extends Component
 {
@@ -39,6 +43,11 @@ class CheckoutComponent extends Component
     public $paymentmode;
     public $thankyou;
 
+    public $card_no;
+    public $exp_month;
+    public $exp_year;
+    public $cvc;
+
 
     public function updated($fields)
     {
@@ -46,7 +55,7 @@ class CheckoutComponent extends Component
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|numeric',
+            'mobile' => 'required|numeric',
             'line1' => 'required',
             'city' => 'required',
             'province' => 'required',
@@ -57,16 +66,26 @@ class CheckoutComponent extends Component
 
         if($this->ship_to_different)
         {
-            $this->validateOnly([
+            $this->validateOnly($fields,[
                 's_firstname' => 'required',
                 's_lastname' => 'required',
                 's_email' => 'required|email',
-                's_phone' => 'required|numeric',
+                's_mobile' => 'required|numeric',
                 's_line1' => 'required',
                 's_city' => 'required',
                 's_province' => 'required',
                 's_country' => 'required',
                 's_zipcode' => 'required'
+            ]);
+        }
+
+        if($this->paymentmode == 'card')
+        {
+            $this->validateOnly($fields,[
+                'card_no' => 'required|numeric',
+                'exp_month' => 'required|numeric',
+                'exp_year' => 'required|numeric',
+                'cvc' => 'required|numeric'
             ]);
         }
     }
@@ -77,7 +96,7 @@ class CheckoutComponent extends Component
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|numeric',
+            'mobile' => 'required|numeric',
             'line1' => 'required',
             'city' => 'required',
             'province' => 'required',
@@ -85,6 +104,16 @@ class CheckoutComponent extends Component
             'zipcode' => 'required',
             'paymentmode' => 'required',
         ]);
+
+        if($this->paymentmode == 'card')
+        {
+            $this->validate([
+                'card_no' => 'required|numeric',
+                'exp_month' => 'required|numeric',
+                'exp_year' => 'required|numeric',
+                'cvc' => 'required|numeric'
+            ]);
+        }
 
         $order = new Order();
         $order->user_id = Auth::user()->id;
@@ -95,7 +124,7 @@ class CheckoutComponent extends Component
         $order->firstname = $this->firstname;
         $order->lastname = $this->lastname;
         $order->email = $this->email;
-        $order->phone = $this->phone;
+        $order->mobile = $this->mobile;
         $order->line1 = $this->line1;
         $order->line2 = $this->line2;
         $order->city = $this->city;
@@ -103,7 +132,7 @@ class CheckoutComponent extends Component
         $order->country = $this->country;
         $order->zipcode = $this->zipcode;
         $order->status = 'ordered';
-        $order->ship_to_different = $this->ship_to_different ? 1:0;
+        $order->is_shipping_different = $this->ship_to_different ? 1:0;
         $order->save();
 
 
@@ -123,7 +152,7 @@ class CheckoutComponent extends Component
                 's_firstname' => 'required',
                 's_lastname' => 'required',
                 's_email' => 'required|email',
-                's_phone' => 'required|numeric',
+                's_mobile' => 'required|numeric',
                 's_line1' => 'required',
                 's_city' => 'required',
                 's_province' => 'required',
@@ -136,7 +165,7 @@ class CheckoutComponent extends Component
             $shipping->firstname = $this->s_firstname;
             $shipping->lastname = $this->s_lastname;
             $shipping->email = $this->s_email;
-            $shipping->phone = $this->s_phone;
+            $shipping->mobile = $this->s_mobile;
             $shipping->line1 = $this->s_line1;
             $shipping->line2 = $this->s_line2;
             $shipping->city = $this->s_city;
@@ -149,17 +178,98 @@ class CheckoutComponent extends Component
 
         if($this->paymentmode == 'cod')
         {
-            $transaction = new Transaction();
-            $transaction->user_id = Auth::user()->id;
-            $transaction->order_id = $order->id;
-            $transaction->mode = 'cod';
-            $transaction->status = 'pending';
-            $transaction->save();
+            $this->makeTransaction($order->id, 'pending');
+            $this->resetCart();
         }
+        else if($this->paymentmode == 'card')
+        {
+            $stripe = Stripe::make(env('STRIPE_KEY'));
 
+            try{
+                $token = $stripe->tokens()->create([
+                    'card' => [
+                        'number' => $this->card_no,
+                        'exp_month' => $this->exp_month,
+                        'exp_year' => $this->exp_year,
+                        'cvc' => $this->cvc
+                    ]
+                ]);
+
+                if(!isset($token['id']))
+                {
+                    session()->flash('stripe_error', 'The stripe token was not generated correctly!');
+                    $this->thankyou = 0;
+                }
+
+                $customer = $stripe->customers()->create([
+                    'name' => $this->firstname . ' ' . $this->lastname,
+                    'email' => $this->email,
+                    'phone' => $this->mobile,
+                    'address' => [
+                        'line1' => $this->line1,
+                        'postal_code' => $this->zipcode,
+                        'city' => $this->city,
+                        'state' => $this->province,
+                        'country' => $this->country
+                    ],
+                    'shipping' => [
+                        'name' => $this->firstname . ' ' . $this->lastname,
+                        'address' => [
+                            'line1' => $this->line1,
+                            'postal_code' => $this->zipcode,
+                            'city' => $this->city,
+                            'state' => $this->province,
+                            'country' => $this->country
+                        ],
+                    ],
+                    'source' => $token['id']
+                ]);
+
+                $charge = $stripe->charges()->create([
+                    'customer' => $customer['id'],
+                    'currency' => 'USD',
+                    'amount' => session()->get('checkout')['total'],
+                    'description' => 'Payment for order no' . $order->id
+                ]);
+
+                if($charge['status'] == 'succeeded')
+                {
+                    $this->makeTransaction($order->id,'approved');
+                    $this->resetCart();
+                }
+                else{
+                    session()->flash('stripe_error', 'Error in Transaction!');
+                    $this->thankyou = 0;
+                }
+            } catch (Exception $e)
+            {
+                session()->flash('stripe_error', $e->getMessage());
+                $this->thankyou = 0;
+            }
+        }
+        $this->sendOrderConfirmationMail($order);
+    }
+
+    public function resetCart()
+    {
         $this->thankyou = 1;
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
+    }
+
+    public function makeTransaction($order_id, $status)
+    {
+        $transaction = new Transaction();
+        $transaction->user_id = Auth::user()->id;
+        $transaction->order_id = $order_id;
+        $transaction->mode = $this->paymentmode;
+        $transaction->status = $status;
+        $transaction->save();
+    }
+
+    public function sendOrderConfirmationMail($order)
+    {
+        Mail::to($order->email)->send(new OrderMail($order));
     }
 
     public function verifyForCheckout()

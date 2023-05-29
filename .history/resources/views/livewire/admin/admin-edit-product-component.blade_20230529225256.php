@@ -146,7 +146,7 @@
                                     @if ($newimages)
                                     @foreach ($newimages as $newimage)
                                     @if ($newimage)
-                                        <img src="{{$newimage->temporaryUrl()}}" width="120">
+                                    <img src="{{$newimage->temporaryUrl()}}" width="120">
                                     @endif
                                     @endforeach
                                     @else
