@@ -17,12 +17,14 @@
 
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
+                    autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                    autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
@@ -48,7 +50,7 @@
     </x-authentication-card>
 </x-guest-layout> --}}
 
-<x-base-layout>
+<x-guest-layout>
     <main id="main" class="main-site left-sidebar">
 
         <div class="container">
@@ -72,21 +74,23 @@
                                     </fieldset>
                                     <fieldset class="wrap-input">
                                         <label for="frm-login-uname">Email Address:</label>
-                                        <input type="email" id="frm-login-uname" name="email" placeholder="Type your email address" :value="old('email')"
-                                            required autofocus>
+                                        <input type="email" id="frm-login-uname" name="email"
+                                            placeholder="Type your email address" :value="old('email')" required
+                                            autofocus>
                                     </fieldset>
                                     <fieldset class="wrap-input">
                                         <label for="frm-login-pass">Password:</label>
-                                        <input type="password" id="frm-login-pass" name="password" placeholder="************" required
-                                            autocomplete="current-password">
+                                        <input type="password" id="frm-login-pass" name="password"
+                                            placeholder="************" required autocomplete="current-password">
                                     </fieldset>
 
                                     <fieldset class="wrap-input">
                                         <label class="remember-field">
-                                            <input class="frm-input " name="remember" id="rememberme" value="forever" type="checkbox"><span>Remember me</span>
+                                            <input class="frm-input " name="remember" id="rememberme" value="forever"
+                                                type="checkbox"><span>Remember me</span>
                                         </label>
-                                        <a class="link-function left-position" href="{{route('password.request')}}" title="Forgotten password?">Forgotten
-                                            password?</a>
+                                        <a class="link-function left-position" href="{{route('password.request')}}"
+                                            title="Forgotten password?">Forgotten password?</a>
                                     </fieldset>
                                     <input type="submit" class="btn btn-submit" value="Login" name="submit">
                                 </form>
@@ -102,4 +106,4 @@
         <!--end container-->
 
     </main>
-</x-base-layout>
+</x-guest-layout>

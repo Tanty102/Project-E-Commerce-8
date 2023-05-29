@@ -11,23 +11,26 @@
 
             <div>
                 <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
+                    autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
+                    autocomplete="username" />
             </div>
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                    autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
                 <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required
-                    autocomplete="new-password" />
+                <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                    name="password_confirmation" required autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -65,7 +68,7 @@
     </x-authentication-card>
 </x-guest-layout> --}}
 
-<x-base-layout>
+<x-guest-layout>
     <main id="main" class="main-site left-sidebar">
 
         <div class="container">
@@ -90,24 +93,26 @@
                                     </fieldset>
                                     <fieldset class="wrap-input">
                                         <label for="frm-reg-lname">Name*</label>
-                                        <input type="text" id="frm-reg-lname" name="name" placeholder="Your name*" :value="name" required autofocus
-                                            autocomplete="name">
+                                        <input type="text" id="frm-reg-lname" name="name" placeholder="Your name*"
+                                            :value="name" required autofocus autocomplete="name">
                                     </fieldset>
                                     <fieldset class="wrap-input">
                                         <label for="frm-reg-email">Email Address*</label>
-                                        <input type="email" id="frm-reg-email" name="email" placeholder="Email address" :value="email">
+                                        <input type="email" id="frm-reg-email" name="email" placeholder="Email address"
+                                            :value="email">
                                     </fieldset>
                                     <fieldset class="wrap-title">
                                         <h3 class="form-title">Login Information</h3>
                                     </fieldset>
                                     <fieldset class="wrap-input item-width-in-half left-item ">
                                         <label for="frm-reg-pass">Password *</label>
-                                        <input type="password" id="frm-reg-pass" name="password" placeholder="Password" required autocomplete="new-password">
+                                        <input type="password" id="frm-reg-pass" name="password" placeholder="Password"
+                                            required autocomplete="new-password">
                                     </fieldset>
                                     <fieldset class="wrap-input item-width-in-half ">
                                         <label for="frm-reg-cfpass">Confirm Password *</label>
-                                        <input type="password" id="frm-reg-cfpass" name="password_confirmation" placeholder="Confirm Password" required
-                                            autocomplete="new-password">
+                                        <input type="password" id="frm-reg-cfpass" name="password_confirmation"
+                                            placeholder="Confirm Password" required autocomplete="new-password">
                                     </fieldset>
                                     <input type="submit" class="btn btn-sign" value="Register" name="register">
                                 </form>
@@ -123,4 +128,4 @@
         <!--end container-->
 
     </main>
-</x-base-layout>
+</x-guest-layout>
