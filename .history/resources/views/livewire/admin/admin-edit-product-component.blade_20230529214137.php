@@ -150,15 +150,11 @@
                                     @endif
                                     @endforeach
                                     @else
-                                    @foreach ($images as $image)
-                                    @if ($image)
                                     <img src="{{asset('assets/images/products')}}/{{$image}}" width="120">
                                     @endif
-                                    @endforeach
-                                    @endif
-                                    {{-- @error('newimage')
+                                    @error('newimage')
                                     <p class="text-danger">{{$message}}</p>
-                                    @enderror --}}
+                                    @enderror
                                 </div>
                             </div>
 
