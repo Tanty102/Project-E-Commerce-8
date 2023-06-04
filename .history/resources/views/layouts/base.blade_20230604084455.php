@@ -247,7 +247,7 @@
                                     <a href="/shop" class="link-term mercado-item-title">@lang('message.shop')</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/cart" class="link-term mercado-item-title">@lang('message.Cart')</a>
+                                    <a href="/cart" class="link-term mercado-item-title">@lang('message.cart')</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/checkout" class="link-term mercado-item-title">@lang("message.Checkout")</a>

@@ -46,8 +46,8 @@
                             </div>
 
                             <div class="change-display-mode">
-                                <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>@lang("message.Grid")</a>
-                                <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>@lang("message.List")</a>
+                                <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
+                                <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
                             </div>
 
                         </div>
@@ -83,7 +83,7 @@
 
                                         <a href="#" class="btn add-to-cart"
                                             wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">
-                                            @lang("message.Add To Cart")
+                                            Add To Cart
                                         </a>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
 
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
                     <div class="widget mercado-widget categories-widget">
-                        <h2 class="widget-title">@lang("message.All Categories")</h2>
+                        <h2 class="widget-title">All Categories</h2>
                         <div class="widget-content">
                             <ul class="list-category">
                                @foreach ($categories as $category)
@@ -150,42 +150,44 @@
                         <h2 class="widget-title">Brand</h2>
                         <div class="widget-content">
                             <ul class="list-style vertical-list list-limited" data-show="6">
-                                <li class="list-item"><a class="filter-link active" href="#">Rolex</a></li>
-                                <li class="list-item"><a class="filter-link " href="#">Cartier</a></li>
-                                <li class="list-item"><a class="filter-link " href="#">Calvin Klein</a></li>
-                                <li class="list-item"><a class="filter-link " href="#">Casio</a></li>
-                                <li class="list-item"><a class="filter-link " href="#">Citizen</a></li>
-                                <li class="list-item"><a class="filter-link " href="#">Orient</a>
+                                <li class="list-item"><a class="filter-link active" href="#">Fashion Clothings</a></li>
+                                <li class="list-item"><a class="filter-link " href="#">Laptop Batteries</a></li>
+                                <li class="list-item"><a class="filter-link " href="#">Printer & Ink</a></li>
+                                <li class="list-item"><a class="filter-link " href="#">CPUs & Prosecsors</a></li>
+                                <li class="list-item"><a class="filter-link " href="#">Sound & Speaker</a></li>
+                                <li class="list-item"><a class="filter-link " href="#">Shop Smartphone & Tablets</a>
                                 </li>
-                                <li class="list-item default-hiden"><a class="filter-link " href="#">G-SHOCK</a>
+                                <li class="list-item default-hiden"><a class="filter-link " href="#">Printer & Ink</a>
                                 </li>
-                                <li class="list-item default-hiden"><a class="filter-link " href="#">HUBLOT</a>
+                                <li class="list-item default-hiden"><a class="filter-link " href="#">CPUs &
+                                        Prosecsors</a>
                                 </li>
-                                <li class="list-item default-hiden"><a class="filter-link " href="#">DANIEL WELLINGTON</a>
+                                <li class="list-item default-hiden"><a class="filter-link " href="#">Sound & Speaker</a>
                                 </li>
-                                <li class="list-item default-hiden"><a class="filter-link " href="#">Timex</a></li>
+                                <li class="list-item default-hiden"><a class="filter-link " href="#">Shop Smartphone &
+                                        Tablets</a></li>
                                 <li class="list-item"><a
                                         data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>'
-                                        class="btn-control control-show-more" href="#">@lang("message.Show more")<i
+                                        class="btn-control control-show-more" href="#">Show more<i
                                             class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div><!-- brand widget-->
 
                     <div class="widget mercado-widget filter-widget price-filter">
-                        <h2 class="widget-title">@lang("message.Price")</h2>
+                        <h2 class="widget-title">Price</h2>
                         <div class="widget-content">
                             <div id="slider-range"></div>
                             <p>
-                                <label for="amount">@lang("message.Price"):</label>
+                                <label for="amount">Price:</label>
                                 <input type="text" id="amount" readonly>
-                                <button class="filter-submit">@lang("message.Filter")</button>
+                                <button class="filter-submit">Filter</button>
                             </p>
                         </div>
                     </div><!-- Price-->
 
                     <div class="widget mercado-widget filter-widget">
-                        <h2 class="widget-title">@lang("message.Color")</h2>
+                        <h2 class="widget-title">Color</h2>
                         <div class="widget-content">
                             <ul class="list-style vertical-list has-count-index">
                                 <li class="list-item"><a class="filter-link " href="#">Red <span>(217)</span></a></li>
@@ -200,7 +202,7 @@
                     </div><!-- Color -->
 
                     <div class="widget mercado-widget filter-widget">
-                        <h2 class="widget-title">@lang("message.Size")</h2>
+                        <h2 class="widget-title">Size</h2>
                         <div class="widget-content">
                             <ul class="list-style inline-round ">
                                 <li class="list-item"><a class="filter-link active" href="#">s</a></li>
@@ -216,7 +218,7 @@
                     </div><!-- Size -->
 
                     <div class="widget mercado-widget widget-product">
-                        <h2 class="widget-title">@lang("message.Popular Products")</h2>
+                        <h2 class="widget-title">Popular Products</h2>
                         <div class="widget-content">
                             <ul class="products">
                                 <li class="product-item">

@@ -49,7 +49,7 @@
                             <ul>
                                 <li class="menu-item">
                                     <a title="Hotline: (+123) 456 789" href="#"><span
-                                            class="icon label-before fa fa-mobile"></span>@lang("message.hotline"): (+123) 456 789</a>
+                                            class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
                                 </li>
                             </ul>
                         </div>
@@ -58,11 +58,11 @@
 
 
                                 <li class="menu-item lang-menu menu-item-has-children parent">
-                                    <a title="English" href="locale/en"><span class="img label-before"><img
+                                    <a title="English" href="#"><span class="img label-before"><img
                                                 src="assets/images/lang-en.png" alt="lang-en"></span>English<i
                                             class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu lang">
-                                        <li class="menu-item"><a title="vietnam" href="locale/vi"><span
+                                        <li class="menu-item"><a title="vietnam" href="#"><span
                                             class="img label-before"><img src="assets/images/lang-vn.png"
                                                 alt="lang-vi"></span>Việt Nam</a></li>
                                         <li class="menu-item"><a title="hungary" href="#"><span
@@ -98,54 +98,54 @@
                                 @auth
                                 @if (Auth::user()->utype === 'ADM')
                                 <li class="menu-item menu-item-has-children parent">
-                                    <a title="My account" href="#">@lang("message.my account") ({{Auth::user()->name}})<i
+                                    <a title="My account" href="#">My account ({{Auth::user()->name}})<i
                                             class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu curency">
                                         <li class="menu-item">
-                                            <a title="Dashboard" href="{{ route ('admin.dashboard')}}">@lang("message.dashboard")</a>
+                                            <a title="Dashboard" href="{{ route ('admin.dashboard')}}">Dashboard</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{route('admin.categories')}}" title="Categories">@lang("message.categories")</a>
+                                            <a href="{{route('admin.categories')}}" title="Categories">Categories</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{route('admin.products')}}" title="Products">@lang("message.All Products")</a>
+                                            <a href="{{route('admin.products')}}" title="Products">All Products</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a href="{{route('admin.homeslider')}}" title="Manage Home Slider">@lang("message.Manage Home Slider")</a>
+                                            <a href="{{route('admin.homeslider')}}" title="Manage Home Slider">Manage Home Slider</a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{route('admin.homecategories')}}" title="Manage Home Categories">
-                                                @lang("message.Manage Home Categories")
+                                                Manage Home Categories
                                             </a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{route('admin.sale')}}" title="Sale Setting">
-                                                @lang("message.Sale Setting")
+                                                Sale Setting
                                             </a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{route('admin.coupons')}}" title="All Coupon">
-                                                @lang("message.All Coupon")
+                                                All Coupon
                                             </a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{route('admin.orders')}}" title="All Orders">
-                                                @lang("message.All Orders")
+                                                All Orders
                                             </a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{route('admin.contact')}}" title="Contact Message">
-                                                @lang("message.Contact Message")
+                                                Contact Message
                                             </a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{route('admin.settings')}}" title="Settings">
-                                                @lang("message.Settings")
+                                                Settings
                                             </a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{ route('logout')}}"
-                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">@lang("message.Logout")</a>
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                         </li>
                                         <form id="logout-form" action="{{ route('logout')}}" method="POST">
                                             @csrf
@@ -154,21 +154,21 @@
                                 </li>
                                 @else
                                 <li class="menu-item menu-item-has-children parent">
-                                    <a title="My account" href="#">@lang("message.my account") ({{Auth::user()->name}})<i
+                                    <a title="My account" href="#">My account ({{Auth::user()->name}})<i
                                             class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu curency">
                                         <li class="menu-item">
-                                            <a title="Dashboard" href="{{ route ('user.dashboard')}}">@lang("message.dashboard")</a>
+                                            <a title="Dashboard" href="{{ route ('user.dashboard')}}">Dashboard</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a title="My Orders" href="{{ route ('user.orders')}}">@lang("message.My Orders")</a>
+                                            <a title="My Orders" href="{{ route ('user.orders')}}">My Orders</a>
                                         </li>
                                         <li class="menu-item">
-                                            <a title="Change Password" href="{{ route ('user.changepassword')}}">@lang("message.Change Password")</a>
+                                            <a title="Change Password" href="{{ route ('user.changepassword')}}">Change Password</a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{ route('logout')}}"
-                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">@lang("message.Logout")</a>
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                         </li>
                                         <form id="logout-form" action="{{ route('logout')}}" method="POST">
                                             @csrf
@@ -177,10 +177,10 @@
                                 </li>
                                 @endif
                                 @else
-                                <li class="menu-item"><a title="Register or Login" href="{{route('login')}}">@lang("message.Login")</a>
+                                <li class="menu-item"><a title="Register or Login" href="{{route('login')}}">Login</a>
                                 </li>
                                 <li class="menu-item"><a title="Register or Login"
-                                        href="{{route('register')}}">@lang("message.Register")</a>
+                                        href="{{route('register')}}">Register</a>
                                 </li>
                                 @endif
 
@@ -221,16 +221,16 @@
                     <div class="header-nav-section">
                         <div class="container">
                             <ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info">
-                                <li class="menu-item"><a href="#" class="link-term">@lang("message.Weekly Featured")</a><span
-                                        class="nav-label hot-label">@lang("message.hot")</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">@lang("message.Hot Sale items")</a><span
-                                        class="nav-label hot-label">@lang("message.hot")</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">@lang("message.Top new items")</a><span
-                                        class="nav-label hot-label">@lang("message.hot")</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">@lang("message.Top Selling")</a><span
-                                        class="nav-label hot-label">@lang("message.hot")</span></li>
-                                <li class="menu-item"><a href="#" class="link-term">@lang("message.Top rated items")</a><span
-                                        class="nav-label hot-label">@lang("message.hot")</span></li>
+                                <li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span
+                                        class="nav-label hot-label">hot</span></li>
+                                <li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span
+                                        class="nav-label hot-label">hot</span></li>
+                                <li class="menu-item"><a href="#" class="link-term">Top new items</a><span
+                                        class="nav-label hot-label">hot</span></li>
+                                <li class="menu-item"><a href="#" class="link-term">Top Selling</a><span
+                                        class="nav-label hot-label">hot</span></li>
+                                <li class="menu-item"><a href="#" class="link-term">Top rated items</a><span
+                                        class="nav-label hot-label">hot</span></li>
                             </ul>
                         </div>
                     </div>
@@ -242,21 +242,20 @@
                                     <a href="/" class="link-term mercado-item-title"><i class="fa fa-home"
                                             aria-hidden="true"></i></a>
                                 </li>
-                                
                                 <li class="menu-item">
-                                    <a href="/shop" class="link-term mercado-item-title">@lang('message.shop')</a>
+                                    <a href="about-us.html" class="link-term mercado-item-title">About Us</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/cart" class="link-term mercado-item-title">@lang('message.Cart')</a>
+                                    <a href="/shop" class="link-term mercado-item-title">Shop</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/checkout" class="link-term mercado-item-title">@lang("message.Checkout")</a>
+                                    <a href="/cart" class="link-term mercado-item-title">Cart</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/contact-us" class="link-term mercado-item-title">@lang("message.Contact Us")</a>
+                                    <a href="/checkout" class="link-term mercado-item-title">Checkout</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="about-us.html" class="link-term mercado-item-title">@lang("message.about us")</a>
+                                    <a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
                                 </li>
                             </ul>
                         </div>
