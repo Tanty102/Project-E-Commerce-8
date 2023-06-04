@@ -22,12 +22,16 @@
                         </div>
                     </div>
                     <div class="panel-body">
+                        @if (Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                        @endif
                         <table class="table table-striped">
                             <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Category Name</th>
                                 <th>Slug</th>
+                                <th>Sub Category</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -38,9 +42,19 @@
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->slug }}</td>
                                         <td>
-                                            <a href="{{route('admin.editcategory',[
-                                                'category_slug'->slug
-                                                ])}}" class="fa fa-edit fa-2x"></a>
+                                            <ul class="sclist">
+                                                @foreach ($category->subCategories as $scategory)
+                                                    <li><i class="fa fa-caret-right"></i> {{$scategory->name}}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <a href="{{route('admin.editcategory',['category_slug'=>$category->slug])}}">
+                                                <i class="fa fa-edit fa-2x"></i>
+                                            </a>
+                                            <a href="#" wire:click.prevent='deleteCategory({{$category->id}})'onclick="confirm('Bạn có muốn xoá ?') || event.stopImmediatePropagation()" style="margin-left: 10px;">
+                                                <i class="fa fa-times fa-2x text-danger"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
