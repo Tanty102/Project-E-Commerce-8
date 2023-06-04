@@ -14,7 +14,10 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <form action="" class="form-horizontal">
+                        @if (Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                        @endif
+                        <form action="" class="form-horizontal" wire:submit.prevent='storeCategory'>
                             <div class="form-group">
                                 <label for="" class="col-md-4 control-label">Category Name</label>
                                 <div class="col-md-4">
@@ -22,6 +25,9 @@
                                     wire:model='name'
                                     wire:keyup='generateslug'
                                     >
+                                    @error('name')
+                                        <p class="text-danger">{{$message}}</p>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -31,6 +37,21 @@
                                     <input type="text" placeholder="Category Slug" class="form-control input-md"
                                     wire:model='slug'
                                     >
+                                    @error('slug')
+                                        <p class="text-danger">{{$message}}</p>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="col-md-4 control-label">Parent Category</label>
+                                <div class="col-md-4">
+                                   <select class="form-control input-md">
+                                        <option value="">None</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                   </select>
                                 </div>
                             </div>
 
