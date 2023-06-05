@@ -84,7 +84,7 @@ class AdminEditProductComponent extends Component
     {
         $this->validate([
             'name' => 'required',
-            'slug' => 'required',
+            'slug' => 'required|unique:products',
             'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required|numeric',

@@ -6,7 +6,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Edit Product
+                                Add New Product
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.products')}}" class="btn btn-success pull-right">
@@ -19,7 +19,7 @@
                         @if (Session::has('message'))
                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                         @endif
-                        <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent='updateProduct'>
+                        <form class="form-horizontal" enctype="multipart/form-data" wire:submit.prevent='addProduct'>
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Product Name</label>
                                 <div class="col-md-4">
@@ -127,13 +127,11 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Product Image</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="newimage">
-                                    @if ($newimage)
-                                    <img src="{{$newimage->temporaryUrl()}}" width="120">
-                                    @else
-                                    <img src="{{asset('assets/images/products')}}/{{$image}}" width="120">
+                                    <input type="file" class="input-file" wire:model="image">
+                                    @if ($image)
+                                    <img src="{{$image->temporaryUrl()}}" width="120">
                                     @endif
-                                    @error('newimage')
+                                    @error('image')
                                     <p class="text-danger">{{$message}}</p>
                                     @enderror
                                 </div>
@@ -142,30 +140,22 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Product Gallery</label>
                                 <div class="col-md-4">
-                                    <input type="file" class="input-file" wire:model="newimages" multiple>
-                                    @if ($newimages)
-                                    @foreach ($newimages as $newimage)
-                                    @if ($newimage)
-                                        <img src="{{$newimage->temporaryUrl()}}" width="120">
-                                    @endif
-                                    @endforeach
-                                    @else
-                                    @foreach ($images as $image)
-                                    @if ($image)
-                                        <img src="{{asset('assets/images/products')}}/{{$image}}" width="120">
-                                    @endif
+                                    <input type="file" class="input-file" wire:model="images" multiple>
+                                    @if ($images)
+                                    @foreach($images as $image)
+                                    <img src="{{$image->temporaryUrl()}}" width="120">
                                     @endforeach
                                     @endif
-                                    {{-- @error('newimage')
+                                    @error('images')
                                     <p class="text-danger">{{$message}}</p>
-                                    @enderror --}}
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Category</label>
                                 <div class="col-md-4">
-                                    <select class="form-control" wire:model="category_id" wire:change="changeSubcategory">
+                                    <select class="form-control" wire:model="category_id">
                                         <option value="">Select Category</option>
                                         @foreach ($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
@@ -181,7 +171,7 @@
                                 <label class="col-md-4 control-label">Sub Category</label>
                                 <div class="col-md-4">
                                     <select class="form-control" wire:model="scategory_id">
-                                        <option value="0">Select Category</option>
+                                        <option value="">Select Category</option>
                                         @foreach ($scategories as $scategory)
                                         <option value="{{$scategory->id}}">{{$scategory->name}}</option>
                                         @endforeach
@@ -195,7 +185,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
 
