@@ -6,7 +6,7 @@
 
             <div class="wrap-breadcrumb">
                 <ul>
-                    <li class="item-link"><a href="#" class="link">home</a></li>
+                    <li class="item-link"><a href="/" class="link">home</a></li>
                     <li class="item-link"><span>Digital & Electronics</span></li>
                 </ul>
             </div>
@@ -57,9 +57,34 @@
                     </div>
                     <!--end wrap shop control-->
 
+                    <style>
+                        .product-wish {
+                            position: absolute;
+                            top: 10%;
+                            left: 0;
+                            z-index: 99;
+                            right: 30px;
+                            text-align: right;
+                            padding-top: 0;
+                        }
+                        .product-wish .fa {
+                            color: #cbcbcb;
+                            font-size: 32px
+                        }
+                        .product-wish .fa:hover {
+                            color: #ff7007;
+                        }
+                        .fill-heart {
+                            color: #ff7007 !important;
+                        }
+                    </style>
+
                     <div class="row">
 
                         <ul class="product-list grid-products equal-container">
+                            @php
+                                $witems = Cart::instance('wishlist')->content()->pluck('id');
+                            @endphp
                             @foreach ($products as $product)
                             <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                                 <div class="product product-style-3 equal-elem ">
@@ -87,6 +112,18 @@
                                             wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">
                                             Add To Cart
                                         </a>
+                                        <div class="product-wish">
+                                            @if ($witems->contains($product->id))
+                                                <a href="#" wire:click.prevent='removeFromWishlist({{$product->id}})'>
+                                                    <i class="fa fa-heart fill-heart"></i>
+                                                </a>
+                                            @else
+                                                <a href="#"
+                                                    wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">
+                                                    <i class="fa fa-heart"></i>
+                                                </a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -140,8 +177,16 @@
                         <div class="widget-content">
                             <ul class="list-category">
                                @foreach ($categories as $category)
-                                    <li class="category-item">
+                                    <li class="category-item {{count($category->subCategories) > 0 ? 'has-child-cate':''}}">
                                         <a href="{{route('product.category',['category_slug'=>$category->slug])}}" class="cate-link">{{$category->name}}</a>
+                                        @if (count($category->subCategories) > 0)
+                                            <span class="toggle-control">+</span>
+                                            <ul class="sub-cate">
+                                                @foreach ($category->subCategories as $scategory)
+                                                    <a href="#" class="cat-link"><i class="fa fa-caret-right"></i> {{$scategory->name}}</a>
+                                                @endforeach
+                                            </ul>
+                                        @endif
                                     </li>
                                 @endforeach
                             </ul>
@@ -316,7 +361,7 @@
     <script>
         var slider = document.getElementById('slider');
         noUiSlider.create(slider,{
-            start : [200000,100000000],
+            start : [100000,100000000],
             connect:true,
             range :{
                 'min' : 100000,
@@ -335,3 +380,4 @@
         })
     </script>
 @endpush
+
