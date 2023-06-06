@@ -13,15 +13,21 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 All Products
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <a href="{{route('admin.addproduct')}}" class="btn btn-primary pull-right">Add New</a>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="Search...">
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
+                        @if (Session::has('message'))
+                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                        @endif
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -30,6 +36,7 @@
                                     <th>Name</th>
                                     <th>Stock</th>
                                     <th>Price</th>
+                                    <th>Sale Price</th>
                                     <th>Category</th>
                                     <th>Date</th>
                                     <th>Action</th>
@@ -42,13 +49,19 @@
                                         <td><img src="{{asset('assets/images/products')}}/{{$product->image}}" width="60" ></td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->stock_status}}</td>
-                                        <td>{{$product->regular_price}}</td>
+                                        <td>{{ number_format($product->regular_price, 0, ',','.') }}₫</td>
+                                        <td>{{ number_format($product->sale_price, 0, ',','.') }}₫</td>
                                         <td>{{$product->category->name}}</td>
                                         <td>{{$product->created_at}}</td>
                                         <td>
                                             <a href="{{route('admin.editproduct',[
                                                 'product_slug' => $product->slug
-                                            ])}}"></a>
+                                                ])}}">
+                                                <i class="fa fa-edit fa-2x text-info"></i>
+                                            </a>
+                                            <a href="#" class="ml-1" onclick="confirm('Bạn có muốn xoá ?') || event.      stopImmediatePropagation()" style="margin-left: 20px;" wire:click.   prevent='deleteProduct({{$product->id}})'>
+                                                <i class="fa fa-times fa-2x text-danger"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
