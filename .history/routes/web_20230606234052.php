@@ -124,7 +124,7 @@ Route::get('/contact-us',ContactComponent::class)->name('contact');
 
     Route::get('/admin/attributes',AdminAttributesComponent::class)->name('admin.attributes');
     Route::get('/admin/attribute/add',AdminAddAttributeComponent::class)->name('admin.add_attribute');
-    Route::get('/admin/attribute/edit{attribute_id}',AdminEditAttributeComponent::class)->name('admin.edit_attribute');
+    Route::get('/admin/attribute/edit',AdminEditAttributeComponent::class)->name('admin.edit_attribute');
 
 });
 
