@@ -101,7 +101,8 @@
                                 <span class="icon-stat-value">{{$totalDelivered}}</span>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <i class="fa fa-gift icon-stat-visual bg-secondary"></i>
+                                {{-- <i class="fa fa-dollar icon-stat-visual bg-primary"></i> --}}
+                                <i class="fa-solid fa-dong-sign icon-stat-visual bg-primary"></i>
                             </div>
                         </div>
                         <div class="icon-stat-footer">
