@@ -9,7 +9,7 @@ class ProductAttribute extends Model
 {
     use HasFactory;
 
-    public function attributeValues()
+    public function getAttributeValues()
     {
         return $this->hasMany(AttributeValue::class);
     }

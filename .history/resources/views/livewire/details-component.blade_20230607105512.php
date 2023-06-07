@@ -88,23 +88,16 @@
                         </div>
 
                         <div>
-                            @foreach ($product->attributeValues->unique('product_attribute_id') as $av)
+                            @foreach ($product->$attributeValues as $av)
                                 <div class="row" style="margin-top: 20px">
                                     <div class="col-xs-2">
                                         <p>{{$av->productAttribute->name}}</p>
-                                    </div>
-                                    <div class="col-xs-10">
-                                        <select class="form-control" style="width: 200px">
-                                            @foreach ($av->productAttribute->attributeValues->where('product_id',$product->id) as $pav)
-                                                <option value="{{$pav->id}}">{{$pav->value}}</option>
-                                            @endforeach
-                                        </select>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
 
-                        <div class="quantity" style="margin-top: 10px;">
+                        <div class="quantity">
                             <span>Quantity:</span>
                             <div class="quantity-input">
                                 <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" wire:model='qty'>
