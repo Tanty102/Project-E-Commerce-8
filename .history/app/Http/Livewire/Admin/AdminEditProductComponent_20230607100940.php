@@ -73,20 +73,6 @@ class AdminEditProductComponent extends Component
         }
     }
 
-    public function add()
-    {
-        if(!$this->attribute_arr->contains($this->attr))
-        {
-            $this->inputs->push($this->attr);
-            $this->attribute_arr->push($this->attr);
-        }
-    }
-
-    public function remove($attr)
-    {
-        unset($this->inputs[$attr]);
-    }
-
     public function generateSlug()
     {
         $this->slug = Str::slug($this->name,'-');
@@ -187,21 +173,6 @@ class AdminEditProductComponent extends Component
             $product->subcategory_id = $this->scategory_id;
         }
         $product->save();
-
-        AttributeValue::where('product_id',$product->id)->delete();
-        foreach($this->attribute_values as $key => $attribute_value)
-        {
-            $avalues = explode(',',$attribute_value);
-            foreach($avalues as $avalue)
-            {
-                $attr_value = new AttributeValue();
-                $attr_value->product_attribute_id = $key;
-                $attr_value->value = $avalue;
-                $attr_value->product_id = $product->id;
-                $attr_value->save();
-            }
-        }
-
         session()->flash('message', 'Product has been updated successfully');
     }
 
