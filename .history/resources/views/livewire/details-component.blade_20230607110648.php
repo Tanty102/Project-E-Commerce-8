@@ -94,9 +94,9 @@
                                         <p>{{$av->productAttribute->name}}</p>
                                     </div>
                                     <div class="col-xs-10">
-                                        <select class="form-control" style="width: 200px" wire:model='satt.{{$av->productAttribute->name}}'>
+                                        <select class="form-control" style="width: 200px" wire:model='satt'>
                                             @foreach ($av->productAttribute->attributeValues->where('product_id',$product->id) as $pav)
-                                                <option value="{{$pav->value}}">{{$pav->value}}</option>
+                                                <option value="{{$pav->id}}">{{$pav->value}}</option>
                                             @endforeach
                                         </select>
                                     </div>
