@@ -204,7 +204,7 @@
                                         <input type="text" class="form-control input-md" placeholder="{{$pattributes->where('id',$attribute_arr[$key])->first()->name}}" wire:model="attribute_values.{{$value}}">
                                     </div>
                                     <div class="col-md-1">
-                                        <button type="button" class="btn btn-danger btn-sm" wire:click.prevent='remove({{$key}})'>Remove</button>
+                                        <button type="button" class="btn btn-danger btn-sm" wire:click.prevent='remove()'>Remove</button>
                                     </div>
                                 </div>
                             @endforeach
