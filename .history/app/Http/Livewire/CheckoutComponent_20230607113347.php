@@ -60,7 +60,7 @@ class CheckoutComponent extends Component
             'city' => 'required',
             'province' => 'required',
             'country' => 'required',
-            'zipcode' => 'required|nullable',
+            'zipcode' => 'required|nullable|numeric',
             'paymentmode' => 'required'
         ]);
 
@@ -75,7 +75,7 @@ class CheckoutComponent extends Component
                 's_city' => 'required',
                 's_province' => 'required',
                 's_country' => 'required',
-                's_zipcode' => 'required|nullable',
+                's_zipcode' => 'required|nullable|numeric',
             ]);
         }
 
@@ -101,7 +101,7 @@ class CheckoutComponent extends Component
             'city' => 'required',
             'province' => 'required',
             'country' => 'required',
-            'zipcode' => 'required|nullable',
+            'zipcode' => 'required|nullable|numeric',
             'paymentmode' => 'required',
         ]);
 
@@ -161,7 +161,7 @@ class CheckoutComponent extends Component
                 's_city' => 'required',
                 's_province' => 'required',
                 's_country' => 'required',
-                's_zipcode' => 'required|nullable',
+                's_zipcode' => 'required|nullable|numeric',
             ]);
 
             $shipping = new Shipping();

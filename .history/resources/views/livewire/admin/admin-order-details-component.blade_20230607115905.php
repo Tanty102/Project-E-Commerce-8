@@ -6,10 +6,47 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                Ordered Items
+                                Order Details
                             </div>
                             <div class="col-md-6">
                                 <a href="{{route('admin.orders')}}" class="btn btn-success pull-right">All Orders</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tr>
+                                <th>Order Id</th>
+                                <td>{{$order->id}}</td>
+                                <th>Order Date</th>
+                                <td>{{$order->created_at}}</td>
+                                <th>Status</th>
+                                <td>{{$order->status}}</td>
+                                @if ($order->status == "delivered")
+                                <th>Delivered Date</th>
+                                <td>{{$order->delivered_date}}</td>
+                                @elseif($order->status == "canceled")
+                                <th>Cancellation Date</th>
+                                <td>{{$order->canceled_date}}</td>
+                                @endif
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-6">
+                                Ordered Items
+                            </div>
+                            <div class="col-md-6">
+                                
                             </div>
                         </div>
                     </div>
@@ -27,6 +64,13 @@
                                         <a class="link-to-product"
                                             href="{{route('product.details',['slug'=>$item->product->slug])}}">{{$item->product->name}}</a>
                                     </div>
+                                    @if ($item->options)
+                                        <div class="product-name">
+                                            @foreach (unserialize($item->options) as $key => $value)
+                                                <p><b>{{$key}}: {{$value}}</b></p>
+                                            @endforeach
+                                        </div>
+                                    @endif
                                     <div class="price-field produtc-price">
                                         <p class="price">{{ number_format($item->price, 0, ',','.') }}₫</p>
                                     </div>
@@ -67,7 +111,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Billing Items
+                        Billing Details
                     </div>
                     <div class="panel-body">
                         <table class="table">
@@ -161,7 +205,21 @@
                     </div>
                     <div class="panel-body">
                         <table class="table">
-                            <tr>
+                            @if($order->transaction)
+                                <tr>
+                                    <th>Transaction Mode</th>
+                                    <td>{{$order->transaction->mode}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <td>{{$order->transaction->status}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Transaction Date</th>
+                                    <td>{{$order->transaction->created_at}}</td>
+                                </tr>
+                            @endif
+                            {{-- <tr>
                                 <th>Transaction Mode</th>
                                 <td>{{$order->transaction->mode}}</td>
                             </tr>
@@ -172,7 +230,7 @@
                             <tr>
                                 <th>Transaction Date</th>
                                 <td>{{$order->transaction->created_at}}</td>
-                            </tr>
+                            </tr> --}}
                         </table>
                     </div>
                 </div>
