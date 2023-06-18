@@ -142,6 +142,7 @@ return [
     'On Sale' => 'On Sale',
     'sale' => 'Sale',
     'Latest Products' => 'Latest Products',
+    'Digital & Electronics' => 'Digital & Electronics',
     'Default sorting' => 'Default sorting',
     'Sort by newness' => 'Sort by newness',
     'Sort by price: low to high' => 'Sort by price: low to high',

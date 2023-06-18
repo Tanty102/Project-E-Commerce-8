@@ -142,6 +142,7 @@ return [
     'On Sale' => 'On Sale',
     'sale' => 'Sale',
     'Latest Products' => 'Latest Products',
+    'Digital & Electronics' => 'Digital & Electronics',
     'Default sorting' => 'Default sorting',
     'Sort by newness' => 'Sort by newness',
     'Sort by price: low to high' => 'Sort by price: low to high',
@@ -160,13 +161,6 @@ return [
     'Italy' => 'Italy',
     'Portugal' => 'Portugal',
     'Show more' => 'Show more',
-    'Digital & Electronics' => 'Digital & Electronics',
-    'Thank You' => 'Thank You',
-    'Thank you for your order'  => 'Thank you for your order',
-    'A confirmation email was sent' => 'A confirmation email was sent',
-    'Continue Shopping' => 'Continue Shopping',
-    'Wishlist' => 'Wishlist',
-    'Move to cart' => 'Move to cart',
 
 ];
 
